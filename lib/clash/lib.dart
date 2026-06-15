@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 
 import 'interface.dart';
 
-/// Android-only bridge to the `com.follow.clashx/service` AIDL service living
+/// Android-only bridge to the `com.kago.vpnapp/service` AIDL service living
 /// in the `:remote` process. Replaces the old FFI + dart-port / service-isolate
 /// architecture: every call now goes through a MethodChannel and is forwarded
 /// across AIDL to the Go core.
@@ -22,7 +22,7 @@ class ClashLib extends ClashHandlerInterface with AndroidClashInterface {
     unawaited(_init());
   }
 
-  final MethodChannel _channel = const MethodChannel('com.follow.clashx/service');
+  final MethodChannel _channel = const MethodChannel('com.kago.vpnapp/service');
   Completer<bool> _initCompleter = Completer<bool>();
 
   static const int _maxCrashRetries = 5;

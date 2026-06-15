@@ -706,7 +706,7 @@ class BuildCommand extends Command {
     }
     await Build.exec(["cp", "-r", "$bundleDir/.", debInstallDir]);
     File(join(debIconDir, "$appName.png")).writeAsBytesSync(File(iconPath).readAsBytesSync());
-    File(join(debDesktopDir, "com.follow.clashx.desktop")).writeAsStringSync(
+    File(join(debDesktopDir, "com.kago.vpnapp.desktop")).writeAsStringSync(
       "[Desktop Entry]\n"
       "Type=Application\n"
       "Name=$appName\n"
@@ -745,7 +745,7 @@ class BuildCommand extends Command {
       }
       await Build.exec(["cp", "-r", "$bundleDir/.", rpmInstallDir]);
       File(join(rpmIconDir, "$appName.png")).writeAsBytesSync(File(iconPath).readAsBytesSync());
-      File(join(rpmDesktopDir, "com.follow.clashx.desktop")).writeAsStringSync(
+      File(join(rpmDesktopDir, "com.kago.vpnapp.desktop")).writeAsStringSync(
         "[Desktop Entry]\n"
         "Type=Application\n"
         "Name=$appName\n"
@@ -761,13 +761,13 @@ class BuildCommand extends Command {
 
       final specPath = join(current, "build", "$appName.spec");
       File(specPath).writeAsStringSync(
-        "Name: flclashx\n"
+        "Name: kago\n"
         "Version: $version\n"
         "Release: 1\n"
         "Summary: $appName\n"
         "License: Other\n"
         "Group: Applications/Internet\n"
-        "Packager: pluralplay <mail@pluralplay.rw>\n"
+        "Packager: ag15 <ag15@ag15.ru>\n"
         "AutoReqProv: no\n"
         "\n"
         "%description\n"
@@ -778,7 +778,7 @@ class BuildCommand extends Command {
         "\n"
         "%files\n"
         "/opt/$appName/*\n"
-        "/usr/share/applications/com.follow.clashx.desktop\n"
+        "/usr/share/applications/com.kago.vpnapp.desktop\n"
         "/usr/share/icons/hicolor/256x256/apps/$appName.png\n",
       );
 
@@ -858,7 +858,7 @@ class BuildCommand extends Command {
 
       File(join(appShareIcon, "$appName.png")).writeAsBytesSync(File(iconPath).readAsBytesSync());
       Build.copyFile(iconPath, join(appDir, "$appName.png"));
-      File(join(appShareDesktop, "com.follow.clashx.desktop")).writeAsStringSync(
+      File(join(appShareDesktop, "com.kago.vpnapp.desktop")).writeAsStringSync(
         "[Desktop Entry]\n"
         "Type=Application\n"
         "Name=$appName\n"
@@ -868,10 +868,10 @@ class BuildCommand extends Command {
         "Icon=$appName\n"
         "Terminal=false\n"
         "Categories=Network;\n"
-        "Keywords=FlClashX;Clash;Proxy;\n"
+        "Keywords=KaGo;Clash;Proxy;\n"
         "StartupNotify=true\n",
       );
-      Build.copyFile(join(appShareDesktop, "com.follow.clashx.desktop"), join(appDir, "com.follow.clashx.desktop"));
+      Build.copyFile(join(appShareDesktop, "com.kago.vpnapp.desktop"), join(appDir, "com.kago.vpnapp.desktop"));
       File(join(appDir, "AppRun")).writeAsStringSync(
         "#!/bin/bash\n"
         'SELF=\$(readlink -f "\$0")\n'

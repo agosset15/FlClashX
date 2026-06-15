@@ -14,7 +14,7 @@ class Window {
       exit(0);
     }
     if (Platform.isWindows) {
-      protocol.register("clashx");
+      protocol.register("vpnapp");
       protocol.register("flclash");
       protocol.register("flclashx");
     }

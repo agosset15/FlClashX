@@ -31,7 +31,7 @@ class DeviceInfoService {
   // recomputing yields the same value, and nothing stale can get stuck there.
   static String? _cachedHwid;
   static const MethodChannel _channel =
-      MethodChannel('com.follow.clashx/device_id');
+      MethodChannel('com.kago.vpnapp/device_id');
 
   String _generateCompact16CharId(String fullId) {
     final bytes = utf8.encode(fullId);

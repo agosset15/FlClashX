@@ -10,8 +10,12 @@ val newBuildDir: Directory = rootProject.layout.buildDirectory.dir("../../build"
 rootProject.layout.buildDirectory.value(newBuildDir)
 
 subprojects {
-    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
-    project.layout.buildDirectory.value(newSubprojectBuildDir)
+    val subprojectBuildDir = if (project.projectDir.toPath().root == rootProject.projectDir.toPath().root) {
+        newBuildDir.dir(project.name)
+    } else {
+        project.layout.buildDirectory.dir("build").get()
+    }
+    project.layout.buildDirectory.value(subprojectBuildDir)
 }
 subprojects {
     project.evaluationDependsOn(":app")

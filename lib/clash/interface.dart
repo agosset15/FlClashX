@@ -155,7 +155,7 @@ abstract class ClashHandlerInterface with ClashInterface {
           id: id,
           method: method,
           data: data,
-        ),
+        ).toJson(),
       ),
     );
 

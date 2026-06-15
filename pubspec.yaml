@@ -120,10 +120,10 @@ flutter_launcher_icons:
   adaptive_icon_monochrome: "assets/images/icon_white.png"
 
 msix_config:
-  display_name: FlClashX
-  publisher_display_name: pluralplay
+  display_name: KaGo
+  publisher_display_name: agosset15
   publisher: CN=F778E60B-B797-4F7E-AE56-743F6A0F5B32
-  identity_name: pluralplay.FlClashX
+  identity_name: agosset15.KaGo
   msix_version: 0.4.0.0
   logo_path: assets/images/icon.png
   capabilities: internetClient, privateNetworkClientServer

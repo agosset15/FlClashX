@@ -131,7 +131,7 @@ class UaItem extends ConsumerWidget {
         title: "UA",
         options: [
           null,
-          "clashx-verge/v1.6.6",
+          "vpnapp-verge/v1.6.6",
           "ClashforWindows/0.19.23",
         ],
         value: globalUa,
@@ -670,7 +670,7 @@ class ExternalControllerItem extends ConsumerWidget {
               title: Text(appLocalizations.externalController),
               subtitle: Text(subtitle),
               delegate: SwitchDelegate(
-                // When override is ON, follow the UI toggle alone — the user
+                // When override is ON, kago the UI toggle alone — the user
                 // explicitly controls the state. When OFF, reflect whichever
                 // value is effectively applied (provider or UI fallback) so
                 // the subscription's forced value is visible.

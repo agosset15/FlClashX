@@ -1,7 +1,7 @@
 
--keep class com.follow.clashx.models.**{ *; }
+-keep class com.kago.vpnapp.models.**{ *; }
 
 # AIDL interfaces and Parcelable models in :service and :core
--keep class com.follow.clashx.service.** { *; }
--keep class com.follow.clashx.core.** { *; }
--keep class com.follow.clashx.common.** { *; }
+-keep class com.kago.vpnapp.service.** { *; }
+-keep class com.kago.vpnapp.core.** { *; }
+-keep class com.kago.vpnapp.common.** { *; }

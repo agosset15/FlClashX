@@ -318,11 +318,11 @@ By default, the following configuration parameters received from the subscriptio
 The following actions are supported:
 
 ```bash
- com.follow.clashx.action.START
+ com.kago.vpnapp.action.START
 
- com.follow.clashx.action.STOP
+ com.kago.vpnapp.action.STOP
 
- com.follow.clashx.action.CHANGE
+ com.kago.vpnapp.action.CHANGE
 ```
 
 ## Download

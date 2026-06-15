@@ -401,11 +401,11 @@ proxy-groups:
 Поддерживаются следующие действия:
 
 ```bash
- com.follow.clashx.action.START
+ com.kago.vpnapp.action.START
 
- com.follow.clashx.action.STOP
+ com.kago.vpnapp.action.STOP
 
- com.follow.clashx.action.CHANGE
+ com.kago.vpnapp.action.CHANGE
 ```
 
 ## Скачать

@@ -15,7 +15,7 @@ abstract mixin class VpnListener {
 
 /// Compatibility shim for UI code that still reads/writes notification state
 /// through the old `vpn` singleton. All transport now goes through [ClashLib]
-/// on the `com.follow.clashx/service` channel; this class keeps the caches
+/// on the `com.kago.vpnapp/service` channel; this class keeps the caches
 /// needed to render the sticky notification title via
 /// [ClashLib.updateNotificationParams].
 class Vpn {
@@ -111,7 +111,7 @@ class Vpn {
 class MethodChannelShim {
   const MethodChannelShim();
   Future<T?> invoke<T>(String method, dynamic arguments) async {
-    const channel = MethodChannel('com.follow.clashx/service');
+    const channel = MethodChannel('com.kago.vpnapp/service');
     return channel.invokeMethod<T>(method, arguments);
   }
 }

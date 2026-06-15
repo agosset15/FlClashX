@@ -10,10 +10,10 @@ import 'package:flutter/material.dart';
 
 const appName = "FlClashX";
 const appHelperService = "FlClashHelperService";
-const coreName = "clashx.meta";
+const coreName = "vpnapp.meta";
 const browserUa =
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
-const packageName = "com.follow.clashx";
+const packageName = "com.kago.vpnapp";
 final unixSocketPath = "/tmp/FlClashXSocket_${pid}_${Random.secure().nextInt(1 << 30)}.sock";
 const helperPort = 47890;
 const maxTextScale = 1.4;

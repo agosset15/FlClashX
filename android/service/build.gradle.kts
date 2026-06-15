@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.follow.clashx.service"
+    namespace = "com.kago.vpnapp.service"
     compileSdk = 36
 
     defaultConfig {

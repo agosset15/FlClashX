@@ -63,7 +63,7 @@ class GlobalState {
   // The external-ui sub-path (e.g. "ui") the core serves the dashboard at; part of
   // the zashboard URL. Empty when the profile sets none.
   final effectiveExternalUi = ValueNotifier<String>("");
-  // Effective values for fields that follow the overrideNetworkSettings gate
+  // Effective values for fields that kago the overrideNetworkSettings gate
   // but don't round-trip through patchClashConfigProvider. UI reads these when
   // override is OFF so it shows what's actually applied (profile or fallback).
   final effectiveTcpConcurrent = ValueNotifier<bool>(false);
@@ -470,7 +470,7 @@ class GlobalState {
     if (rawConfig["external-ui-url"] == null || rawConfig["external-ui-url"] == "") {
       rawConfig["external-ui-url"] = "";
     }
-    // These follow the same overrideNetworkSettings gate as other fields:
+    // These kago the same overrideNetworkSettings gate as other fields:
     //   override ON  → UI value wins (always written)
     //   override OFF → profile value wins, UI is fallback only if missing
     // Effective values are exposed so the UI reflects what's actually applied
