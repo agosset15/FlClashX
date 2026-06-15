@@ -74,7 +74,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="KaGo" android:host="install-config" />
+                <data android:scheme="kago" android:host="install-config" />
             </intent-filter>
             <meta-data
                 android:name="android.app.shortcuts"

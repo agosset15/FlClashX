@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kago.vpnapp.core"
-    compileSdk = 37
+    compileSdk = 35
     ndkVersion = "28.0.13004108"
 
     defaultConfig {

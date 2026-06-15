@@ -2,7 +2,7 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -22,9 +22,9 @@ val isRelease = mStoreFile.exists()
         && mKeyAlias != null
         && mKeyPassword != null
 
-configure<com.android.build.api.dsl.ApplicationExtension> {
+android {
     namespace = "com.kago.vpnapp"
-    compileSdk = 37
+    compileSdk = 35
     ndkVersion = "28.0.13004108"
 
     compileOptions {
@@ -36,7 +36,7 @@ configure<com.android.build.api.dsl.ApplicationExtension> {
     defaultConfig {
         applicationId = "com.kago.vpnapp"
         minSdk = 23
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 35
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

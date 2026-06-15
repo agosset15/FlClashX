@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.kago.vpnapp.service"
-    compileSdk = 37
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 23
