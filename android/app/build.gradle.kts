@@ -23,7 +23,7 @@ val isRelease = mStoreFile.exists()
 
 android {
     namespace = "com.kago.vpnapp"
-    compileSdk = 35
+    compileSdk = 36
     ndkVersion = "27.0.12077973"
 
     compileOptions {
@@ -95,7 +95,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":common"))
     implementation(project(":service"))
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.core:core-splashscreen:1.2.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.code.gson:gson:2.14.0")
     implementation("com.android.tools.smali:smali-dexlib2:3.0.9") {
