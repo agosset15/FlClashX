@@ -22,19 +22,15 @@ val isRelease = mStoreFile.exists()
         && mKeyAlias != null
         && mKeyPassword != null
 
-android {
+configure<com.android.build.api.dsl.ApplicationExtension> {
     namespace = "com.kago.vpnapp"
-    compileSdk = 36
+    compileSdk = 37
     ndkVersion = "28.0.13004108"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
         isCoreLibraryDesugaringEnabled = true
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
@@ -88,6 +84,12 @@ android {
 
 flutter {
     source = "../.."
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
 }
 
 dependencies {

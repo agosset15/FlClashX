@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kago.vpnapp.core"
-    compileSdk = 36
+    compileSdk = 37
     ndkVersion = "28.0.13004108"
 
     defaultConfig {
@@ -45,7 +45,7 @@ android {
     }
 }
 dependencies {
-    implementation("androidx.annotation:annotation-jvm:1.9.1")
+    implementation("androidx.annotation:annotation-jvm:1.10.0")
 }
 
 val copyNativeLibs by tasks.register<Copy>("copyNativeLibs") {
