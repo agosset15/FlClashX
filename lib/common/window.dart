@@ -16,7 +16,7 @@ class Window {
     if (Platform.isWindows) {
       protocol.register("vpnapp");
       protocol.register("flclash");
-      protocol.register("flclashx");
+      protocol.register("kago");
     }
 
     // On macOS, the app runs in status bar with popover - no window manager needed
