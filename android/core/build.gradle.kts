@@ -1,11 +1,12 @@
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
     namespace = "com.kago.vpnapp.core"
-    compileSdk = 35
-    ndkVersion = "27.0.12077973"
+    compileSdk = 36
+    ndkVersion = "28.0.13004108"
 
     defaultConfig {
         minSdk = 23
@@ -34,13 +35,17 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
 dependencies {
-    implementation("androidx.annotation:annotation-jvm:1.10.0")
+    implementation("androidx.annotation:annotation-jvm:1.9.1")
 }
 
 val copyNativeLibs by tasks.register<Copy>("copyNativeLibs") {
