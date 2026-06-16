@@ -90,11 +90,11 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.kago" "\0"
-            VALUE "FileDescription", "FlClashX" "\0"
+            VALUE "FileDescription", "KaGo" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "vpnapp" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.kago. All rights reserved." "\0"
-            VALUE "OriginalFilename", "FlClashX.exe" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 KaGo. All rights reserved." "\0"
+            VALUE "OriginalFilename", "KaGo.exe" "\0"
             VALUE "ProductName", "vpnapp" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
