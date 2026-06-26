@@ -376,7 +376,7 @@ class _TrafficCard extends StatelessWidget {
                 child: Text(
                   unlimited
                       ? _formatBytes(used)
-                      : '${_formatBytes(used)} / ${_formatBytes(total)}',
+                      : '${_formatBytes(used)} / ${_formatBytes(total)} ${appLocalizations.to_lte}',
                   style: context.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w700,
                     fontFamily: FontFamily.jetBrainsMono.value,

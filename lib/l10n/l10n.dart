@@ -3464,6 +3464,12 @@ class AppLocalizations {
     return Intl.message('Remaining', name: 'remaining', desc: '', args: []);
   }
 
+  
+  /// `To LTE`
+  String get to_lte {
+    return Intl.message('for LTE', name: 'to_lte', desc: '', args: []);
+  }
+
   /// `Remaining`
   String get remainingSingular {
     return Intl.message(
