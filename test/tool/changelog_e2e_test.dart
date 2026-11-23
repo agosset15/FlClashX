@@ -240,6 +240,23 @@ void main() {
     expect(versions.single.groups.single.entries.single.text, 'Fork feature');
   });
 
+  test('excludes the merged legacy fork history from structured releases', () {
+    git(['checkout', '--quiet', '-b', 'legacy-fork', 'v1.0.0']);
+    commit('fix: older fork fix');
+    git(['tag', 'v0.3.1']);
+    commit('fix: last legacy fork fix');
+    git(['tag', 'v0.3.2']);
+    git(['checkout', '--quiet', 'main']);
+    git(['merge', '--quiet', '--no-edit', 'legacy-fork']);
+    commit('feat: new fork release');
+    git(['tag', 'v1.2.0']);
+
+    expect(build().changelog.versions.map((version) => version.tag), [
+      'v1.2.0',
+      'v1.1.0',
+    ]);
+  });
+
   test('a rebuild keeps the entries written for a version and adds what git '
       'derived since', () {
     commit('fix(e): derived fix');

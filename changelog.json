@@ -2,6 +2,489 @@
   "schemaVersion": 2,
   "versions": [
     {
+      "version": "0.5.9",
+      "tag": "v0.5.9",
+      "date": "2026-11-23",
+      "prerelease": false,
+      "groups": [
+        {
+          "type": "feat",
+          "entries": [
+            {
+              "id": "e1d24ea",
+              "text": "Move to KAGO branding"
+            },
+            {
+              "id": "ab08aec",
+              "text": "Redesign connections page вЂ” tabs, app/exe icons, destination flags, zashboard button"
+            },
+            {
+              "id": "836ca4f",
+              "text": "Classic navbar with old dashboard, hero navbar with new"
+            },
+            {
+              "id": "ba0ff16",
+              "text": "Show core version in build-core run name"
+            },
+            {
+              "id": "7d8f2d2",
+              "text": "Domain-redirect via flclashx-newdomain header"
+            },
+            {
+              "id": "256e36f",
+              "text": "Core-side health check, delay test error handling, UI tooltips"
+            },
+            {
+              "id": "cb375d7",
+              "text": "Android notification/tile/battery rework, shortcuts, desktop socket leak fix, macOS entitlement"
+            },
+            {
+              "id": "6042cd0",
+              "text": "Hwid headers update, merge provider headers on update, yaml highlight"
+            },
+            {
+              "id": "89853b0",
+              "text": "Yaml highlight controller, editor rewrite, runtime config highlight"
+            },
+            {
+              "id": "f9090af",
+              "text": "GetCoreVersion IPC action, update UI fixes, revert ARM builds"
+            },
+            {
+              "id": "2e64069",
+              "text": "Core update progress bar and update highlight"
+            },
+            {
+              "id": "a000acb",
+              "text": "New tray icon, new title bar"
+            },
+            {
+              "id": "d805e7b",
+              "text": "New readme"
+            },
+            {
+              "id": "a6629f5",
+              "text": "3 days notice of expiring subscription every day (only Android for now)"
+            },
+            {
+              "id": "6cfef7e",
+              "text": "New header flclashx-globalmode feat: visible servicename and host in foreground notify fix: update dependencies packages fix: flclashx-custom logic fix: windows installer fix: update logic empty widgets visible fix: update notify TG"
+            },
+            {
+              "id": "3bb505b",
+              "text": "Manually check ip from networkDetection widget"
+            },
+            {
+              "id": "aad6cc7",
+              "text": "Add restart button in tray control feat: new pop-up window when HWID Limit is reached"
+            },
+            {
+              "id": "5a8b7bb",
+              "text": "Add button to check latency across all proxy groups feat: new header flclashx-hex (custom theme app) fix: search button in proxy groups fix: setting up proxy group sorting"
+            },
+            {
+              "id": "9aed3be",
+              "text": "Logs folder button in settings menu refactor: about page"
+            },
+            {
+              "id": "8daaf10",
+              "text": "Logger in file (logrotate10 days)"
+            },
+            {
+              "id": "dae0ee6",
+              "text": "Add flclashx-backgroud header (the ability to customize the application background) feat: button to hide/show all proxy groups fix: kill application when installing over an older version"
+            },
+            {
+              "id": "a215698",
+              "text": "Recive parameters from a subscription and enabling from an override in client: allow-lan, ipv6, find-process-mode, tun-stack feat: the ability to completely reset application profiles from settings"
+            },
+            {
+              "id": "9bbc835",
+              "text": "Universal APK feat: new UI for geofiles menu feat: Application settings from sub-header (disableable setting override) feat: saving custom settings from the profile header fix: custom geofiles loader (check hash from URL) fix: safe_patch error fix: metainfo widget logical fix: localization"
+            },
+            {
+              "id": "258ee60",
+              "scope": "release",
+              "text": "Add Repology badge for FlClashX version tracking"
+            },
+            {
+              "id": "9037bb7",
+              "scope": "dashboard",
+              "text": "Enhance MetainfoWidget with improved expiration display and UI adjustments"
+            },
+            {
+              "id": "813e2a7",
+              "scope": "build",
+              "text": "Clean up build workflow"
+            },
+            {
+              "id": "5b8c0a0",
+              "scope": "dashboard",
+              "text": "Add serviceInfo widget and update profile handling"
+            },
+            {
+              "id": "6415f2b",
+              "scope": "proxy",
+              "text": "Enhance proxy card functionality and UI"
+            },
+            {
+              "id": "ddc3358",
+              "scope": "proxy",
+              "text": "Enhance proxy handling with server descriptions and JSON integration"
+            },
+            {
+              "id": "ec8323c",
+              "scope": "macos",
+              "text": "Adjust popover dimensions and enhance macOS app layout"
+            },
+            {
+              "id": "a879425",
+              "scope": "dashboard",
+              "text": "Enhance StartButton with animation and tap feedback"
+            },
+            {
+              "id": "b29a193",
+              "scope": "localization",
+              "text": "Add \"Change Server\" string to multiple language files and update UI elements for macOS"
+            },
+            {
+              "id": "ea5656b",
+              "scope": "build",
+              "text": "Enhance Makefile and Xcode project for macOS notarization and code signing"
+            },
+            {
+              "id": "72ef0de",
+              "scope": "macos",
+              "text": "Implement native status bar and code signing support"
+            }
+          ]
+        },
+        {
+          "type": "fix",
+          "entries": [
+            {
+              "id": "c654d4b",
+              "text": "Newboard header via flclashx-custom (update=every apply, add=on first add), unlock toggle"
+            },
+            {
+              "id": "43e2dec",
+              "text": "Android battery drain, instant host pings, launch flow and tun lifecycle, macos dns"
+            },
+            {
+              "id": "3c2338e",
+              "text": "Remove duplicate branch input from build-core, use workflow_dispatch ref"
+            },
+            {
+              "id": "446ebb3",
+              "text": "Ip-check sequential with timeouts, fix announce emoji on new dashboard, android tun re-setup on connect, feat: vendor utls firefox148/safari26, bump mihomo core 1.19.27, feat: tv phone-sync, flclashx-override global, buy buttons"
+            },
+            {
+              "id": "e511721",
+              "text": "Subtle primary tint on hero card when active"
+            },
+            {
+              "id": "2178be8",
+              "text": "Unify support icon to contact_support everywhere"
+            },
+            {
+              "id": "c16ea9c",
+              "text": "Remove scroll, use AnimatedContainer for card bg transition"
+            },
+            {
+              "id": "135c29d",
+              "text": "Increase bottom padding to 32px"
+            },
+            {
+              "id": "c9542a0",
+              "text": "Add bottom safe area padding for Android navigation bar"
+            },
+            {
+              "id": "2ac738f",
+              "text": "VPN cold-start NPE, editor line numbers, build-core version update"
+            },
+            {
+              "id": "d67088d",
+              "text": "Health check loading indicator and generated enum map"
+            },
+            {
+              "id": "abff839",
+              "text": "Process name detection, geo download timeout, windows arm64 build"
+            },
+            {
+              "id": "a3fc28a",
+              "text": "Windows arm64 build path"
+            },
+            {
+              "id": "42d5a0d",
+              "text": "Inno setup template, file naming, linux deb/rpm/appimage, kotlin version"
+            },
+            {
+              "id": "4c6f33a",
+              "text": "Desktop socket race condition, battery prompt once, build improvements"
+            },
+            {
+              "id": "7ea0fdf",
+              "text": "Editor content scroll with expands + maxLines"
+            },
+            {
+              "id": "6f770ea",
+              "text": "Editor wrap, scroll, dark theme support"
+            },
+            {
+              "id": "416fb4f",
+              "text": "Remove version from restart core button"
+            },
+            {
+              "id": "7fb3020",
+              "text": "Add getCoreVersion to ActionMethodEnumMap (was missing in generated code)"
+            },
+            {
+              "id": "a04dbfd",
+              "text": "Core update version display, workflow input simplification"
+            },
+            {
+              "id": "c0844ef",
+              "text": "Check core version from running instance, not build constant"
+            },
+            {
+              "id": "e9982a4",
+              "text": "Remove unused shutdown_service function"
+            },
+            {
+              "id": "14788af",
+              "text": "Stop core before replacing binary on update"
+            },
+            {
+              "id": "61c3c25",
+              "text": "Flutter setup for windows arm and linux arm runners"
+            },
+            {
+              "id": "2568727",
+              "text": "Install flutter from git on ARM runners"
+            },
+            {
+              "id": "9a09417",
+              "text": "Pin flutter version for ARM runners"
+            },
+            {
+              "id": "452debf",
+              "text": "Recreate tun-interface"
+            },
+            {
+              "id": "51737fc",
+              "text": "Mihomo core integration fix: remove overrride tcp-concurrent, unified-delay, log-level, keep-alive-interval feat: custom parameter \"description\" proxy-group feat: external-ui logic"
+            },
+            {
+              "id": "a4b131b",
+              "text": "App work is performed through the running tun on Android fix: removed validation on mixed port and off sysProxy with mixed-port = 0 fix: corrections for the MATCH field in the override settings fix: include/exclude package on Android feat: new header flclashx-androidsecure, override mixed-port = 0 in Andriod, and hide port setting"
+            },
+            {
+              "id": "fe00311",
+              "text": "Update profile autostart app is off"
+            },
+            {
+              "id": "1e627ab",
+              "text": "Readme default hex-theme"
+            },
+            {
+              "id": "9ed2abe",
+              "text": "Tg channel link"
+            },
+            {
+              "id": "abfeb1d",
+              "text": "ClashHelper installer"
+            },
+            {
+              "id": "73ebc38",
+              "text": "Tg notify"
+            },
+            {
+              "id": "3d628fc",
+              "text": "AndroidTV focusing dpad proxy page"
+            },
+            {
+              "id": "c0568df",
+              "text": "Windows logic service fix: Linux arm build"
+            },
+            {
+              "id": "3d77df5",
+              "text": "Added pureblack variant hex header fix: optimize base fix: icon linux-based distrib"
+            },
+            {
+              "id": "b2787b5",
+              "text": "HWID notify logic fix: removed the proxy group type from the proxy page"
+            },
+            {
+              "id": "1d9c2dc",
+              "text": "Android tile service feat: manual check in IPchecker widget feat: mode selector in ProxyPage feat: notify modal in HWID limit fix: logic geo updater"
+            },
+            {
+              "id": "ad1c5dc",
+              "text": "Android tile service feat: manual check in IPchecker widget feat: mode selector in ProxyPage feat: notify modal in HWID limit fix: logic geo updater"
+            },
+            {
+              "id": "3d97ed3",
+              "text": "Cache icons"
+            },
+            {
+              "id": "6c5cd94",
+              "text": "The proxy tab disappears when renewing a subscription or in other cases"
+            },
+            {
+              "id": "c3ee9ea",
+              "text": "Blur on bottomsheets, sidesheets"
+            },
+            {
+              "id": "a1d4f83",
+              "text": "Memtagmode off (temp solution)"
+            },
+            {
+              "id": "a38d14a",
+              "text": "Serivceinfo widget base64 issue"
+            },
+            {
+              "id": "90a6521",
+              "text": "Backup/restore app function"
+            },
+            {
+              "id": "3492ad9",
+              "text": "Release script"
+            },
+            {
+              "id": "f4bec9b",
+              "text": "Init proxiesgroup for start/stop button"
+            },
+            {
+              "id": "97eafbb",
+              "text": "Andriod adaptive icon"
+            },
+            {
+              "id": "c7ed6eb",
+              "text": "Release template"
+            },
+            {
+              "id": "bb06855",
+              "text": "Build pages RepaintBoundary widgets feat: notify release fix: modal pages opacity"
+            },
+            {
+              "id": "cb30c00",
+              "text": "Windows arm actions"
+            },
+            {
+              "id": "ad683ba",
+              "text": "Coreversion on build app"
+            },
+            {
+              "id": "ad85ba3",
+              "text": "Artefact slidemenu"
+            },
+            {
+              "id": "b0838c3",
+              "text": "Serviceinfo and changeserver support latin or base64 header for cyrillic, unicode and emoji support fix: support https:// links announce widget"
+            },
+            {
+              "id": "81bbf2d",
+              "text": "Android icons and splashscreen refactor: changeserverbutton widget fear: new header flclashx-serverinfo refactor: update readme and templates fix: cache logo in service-logo header fix: theme opacity layer"
+            },
+            {
+              "id": "973c44e",
+              "text": "Optimize theme for opacity layers fix: deprecated core version fix: about page"
+            },
+            {
+              "id": "1fb8481",
+              "text": "Release template"
+            },
+            {
+              "id": "5ce18d7",
+              "text": "Visible log folder button on andriod"
+            },
+            {
+              "id": "39b6c13",
+              "text": "Gtk flags"
+            },
+            {
+              "id": "aab6ffd",
+              "text": "Workflow"
+            },
+            {
+              "id": "b8e09d5",
+              "text": "Android hwid generator (Settings.Secure_ID)"
+            },
+            {
+              "id": "cfc8b5f",
+              "text": "Running a single instance on Linux"
+            },
+            {
+              "id": "2a2294b",
+              "text": "Pubsec.yaml"
+            },
+            {
+              "id": "b766d0d",
+              "text": "Workflow flutter version"
+            },
+            {
+              "id": "1cb0d5d",
+              "text": "Locale refactor: recive mixed-port from subscription"
+            },
+            {
+              "id": "6e1008f",
+              "text": "Recieve App Setting from provider fix: en localization update: readme"
+            },
+            {
+              "id": "6f40708",
+              "text": "Migrate deprecated iconstyle"
+            },
+            {
+              "id": "4340076",
+              "text": "Android notification start bug refactor: cardType fill flexible"
+            },
+            {
+              "id": "72fe70a",
+              "text": "Macos naming artifact"
+            },
+            {
+              "id": "bd6d0e1",
+              "text": "Notify icon android"
+            },
+            {
+              "id": "a9ed6e1",
+              "text": "Main settings UI and default variable fix: hwid generator fix: macos version artifact rename"
+            },
+            {
+              "id": "e524afb",
+              "text": "Pre-release posting gh"
+            },
+            {
+              "id": "c9dce34",
+              "text": "Delete message from update core version"
+            },
+            {
+              "id": "77942f0",
+              "text": "Init FlClashX"
+            },
+            {
+              "id": "df14f42",
+              "text": "Init"
+            },
+            {
+              "id": "b88c0fb",
+              "text": "Init universal apk fix: init fork flutter_distributor"
+            },
+            {
+              "id": "7e1e2a0",
+              "scope": "utils",
+              "text": "Update time formatting for getTimeText method"
+            },
+            {
+              "id": "a6708f3",
+              "scope": "window_manager",
+              "text": "Simplify macOS logic in WindowHeaderContainer and remove unused import"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "version": "0.5.8",
       "tag": "v0.5.8",
       "date": "2026-11-18",

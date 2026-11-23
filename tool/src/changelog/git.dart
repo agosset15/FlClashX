@@ -91,13 +91,13 @@ class Git {
 
   List<VersionTag> versionTags({
     String revision = 'HEAD',
-    String? notMergedInto,
+    List<String> notMergedInto = const [],
   }) {
     final output = _run([
       'tag',
       '--merged',
       revision,
-      if (notMergedInto != null) ...['--no-merged', notMergedInto],
+      for (final ref in notMergedInto) ...['--no-merged', ref],
     ]);
     final tags = output
         .split('\n')
@@ -110,7 +110,7 @@ class Git {
 
   List<VersionTag> stableTags({
     String revision = 'HEAD',
-    String? notMergedInto,
+    List<String> notMergedInto = const [],
   }) => versionTags(
     revision: revision,
     notMergedInto: notMergedInto,

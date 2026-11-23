@@ -9,6 +9,9 @@ import 'render.dart';
 /// The upstream release the fork sits on; versions up to it are not ours.
 const frozenBoundaryTag = 'v0.9.2';
 
+/// The last release from the fork's history before the structured changelog.
+const _legacyForkBoundaryTag = 'v0.3.2';
+
 const changelogDataPath = 'changelog.json';
 
 const changelogMarkdownPath = 'CHANGELOG.md';
@@ -51,20 +54,30 @@ class ChangelogBuilder {
 
   ChangelogBuildResult build({PendingVersion? pending}) {
     final boundaryTag = VersionTag.tryParse(boundary);
+    final upstreamTag = boundaryTag != null && git.tagExists(boundaryTag.name)
+        ? boundaryTag.name
+        : null;
     // Fork releases are numbered below upstream's, so compare by history.
-    final stable = boundaryTag != null && git.tagExists(boundaryTag.name)
-        ? git.stableTags(notMergedInto: boundaryTag.name)
-        : git
-              .stableTags()
-              .where(
-                (tag) => boundaryTag == null || tag.compareTo(boundaryTag) > 0,
-              )
-              .toList();
+    final stable = git
+        .stableTags(
+          notMergedInto: [
+            if (upstreamTag != null) upstreamTag,
+            if (git.tagExists(_legacyForkBoundaryTag)) _legacyForkBoundaryTag,
+          ],
+        )
+        .where(
+          (tag) =>
+              upstreamTag != null ||
+              boundaryTag == null ||
+              tag.compareTo(boundaryTag) > 0,
+        )
+        .toList();
     final parser = ChangelogParser();
     final versions = <ChangelogVersion>[];
     final commitIdsByTag = <String, Set<String>>{};
 
-    final boundaryRef = _boundaryRef(boundaryTag);
+    final boundaryRef =
+        upstreamTag ?? (boundaryTag == null ? null : git.latestReleaseCommit());
     if (pending != null && !git.tagExists(pending.tag)) {
       final commits = git.commits(
         from: stable.isEmpty ? boundaryRef : stable.first.name,
@@ -104,12 +117,6 @@ class ChangelogBuilder {
       warnings: parser.warnings,
       commitIdsByTag: commitIdsByTag,
     );
-  }
-
-  String? _boundaryRef(VersionTag? tag) {
-    if (tag == null) return null;
-    if (git.tagExists(tag.name)) return tag.name;
-    return git.latestReleaseCommit();
   }
 
   Set<String> _idsOf(List<RawCommit> commits) =>

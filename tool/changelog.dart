@@ -155,7 +155,7 @@ int _verify(String root) {
 
   final changelog = decodeChangelog(dataFile.readAsStringSync());
 
-  final markdown = markdownFile.readAsStringSync();
+  final markdown = markdownFile.readAsStringSync().replaceAll('\r\n', '\n');
   if (!markdown.contains(changelogFrozenMarker)) {
     problems.add('$changelogMarkdownPath is missing the frozen marker');
   } else if (markdownHead(markdown).trimRight() !=

@@ -34,12 +34,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Release history is counted from upstream's frozenBoundaryTag, which the
-      # fork does not carry; pushing it there would start a build of its own.
-      - name: Fetch the changelog boundary tag
+      - &changelog_history
+        name: Fetch changelog history
+        shell: bash
         run: |
           tag=$(sed -n "s/^const frozenBoundaryTag = '\(.*\)';$/\1/p" tool/src/changelog/builder.dart)
           git fetch --no-tags https://github.com/chen08209/FlClash.git "refs/tags/${tag}:refs/tags/${tag}"
+          if [[ "$GITHUB_REPOSITORY" == 'agosset15/FlClashX' ]]; then
+            refs=()
+            for patch in {0..8}; do
+              ref="refs/tags/v0.5.$patch"
+              if ! git show-ref --verify --quiet "$ref"; then
+                refs+=("$ref:$ref")
+              fi
+            done
+            if ((${#refs[@]})); then
+              git fetch --no-tags https://github.com/pluralplay/FlClashX.git "${refs[@]}"
+            fi
+          fi
 
       - name: Test git hooks
         run: bash tool/hooks/test.sh
@@ -336,8 +348,9 @@ jobs:
         run: cargo test --manifest-path services/helper/Cargo.toml --features windows-service
 
   build:
-    # Releases publish where the release links point: the public repository.
-    if: github.repository == 'pluralplay/FlClashX' && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    if: >-
+      (github.repository == 'agosset15/FlClashX' || github.repository == 'pluralplay/FlClashX') &&
+      github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -543,12 +556,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Release history is counted from upstream's frozenBoundaryTag, which the
-      # fork does not carry; pushing it there would start a build of its own.
-      - name: Fetch the changelog boundary tag
-        run: |
-          tag=$(sed -n "s/^const frozenBoundaryTag = '\(.*\)';$/\1/p" tool/src/changelog/builder.dart)
-          git fetch --no-tags https://github.com/chen08209/FlClash.git "refs/tags/${tag}:refs/tags/${tag}"
+      - *changelog_history
 
       - name: Download
         uses: actions/download-artifact@v7
@@ -589,9 +597,9 @@ jobs:
         run: |
           version=$(echo "${{ github.ref_name }}" | sed 's/^v//')
           if [ "${{ env.IS_STABLE }}" == "true" ]; then
-            sed "s|VERSION|$version|g" ./.github/release_template.md >> release.md
+            sed "s|pluralplay/FlClashX|$GITHUB_REPOSITORY|g; s|VERSION|$version|g" ./.github/release_template.md >> release.md
           else
-            sed "s|VERSION|$version|g" ./.github/pre_release_template.md >> release.md
+            sed "s|pluralplay/FlClashX|$GITHUB_REPOSITORY|g; s|VERSION|$version|g" ./.github/pre_release_template.md >> release.md
           fi
 
       - name: Generate sha256
@@ -631,7 +639,7 @@ jobs:
 
   aur-publish:
     needs: [ upload ]
-    if: always() && needs.upload.result == 'success'
+    if: always() && github.repository == 'pluralplay/FlClashX' && needs.upload.result == 'success'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -731,7 +739,7 @@ jobs:
   notify:
     needs: [ upload, aur-publish ]
     # Posts as long as the GitHub release succeeded, whatever AUR did.
-    if: always() && needs.upload.result == 'success'
+    if: always() && github.repository == 'pluralplay/FlClashX' && needs.upload.result == 'success'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
