@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "com.follow.clashx.core"
+    namespace = "net.usekago.app.core"
     compileSdk = libs.versions.compileSdk.get().toInt()
     ndkVersion = libs.versions.ndkVersion.get()
 
@@ -150,7 +150,7 @@ abstract class GomobileBind : DefaultTask() {
                 "bind",
                 "-target=${targets.get().joinToString(",")}",
                 "-androidapi=${androidApi.get()}",
-                "-javapkg=com.follow.clashx.core",
+                "-javapkg=net.usekago.app.core",
                 "-tags=${tags.get()}",
                 "-ldflags=${ldflags.get()} -X=runtime.godebugDefault=${godebug.toString().trim()}",
                 "-o",

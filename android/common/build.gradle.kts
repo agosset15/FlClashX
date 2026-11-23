@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.follow.clashx.common"
+    namespace = "net.usekago.app.common"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

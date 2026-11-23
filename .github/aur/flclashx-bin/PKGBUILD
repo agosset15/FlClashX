@@ -39,7 +39,7 @@ prepare() {
     sed -i -e "
       s|^Exec=.*|Exec=${pkgname%-bin}|
       s|^Icon=.*|Icon=${pkgname%-bin}|
-    " "${srcdir}/usr/share/applications/com.follow.clashx.desktop"
+    " "${srcdir}/usr/share/applications/net.usekago.app.desktop"
 }
 
 package() {
@@ -47,7 +47,7 @@ package() {
     install -dm755 "${pkgdir}/usr/lib/${pkgname%-bin}"
     # App bundle lives under /opt in the .deb, not /usr/share.
     cp -Pr --no-preserve=ownership "${srcdir}/opt/${_pkgname}/"* "${pkgdir}/usr/lib/${pkgname%-bin}/"
-    install -Dm644 "${srcdir}/usr/share/applications/com.follow.clashx.desktop" "${pkgdir}/usr/share/applications/${pkgname%-bin}.desktop"
+    install -Dm644 "${srcdir}/usr/share/applications/net.usekago.app.desktop" "${pkgdir}/usr/share/applications/${pkgname%-bin}.desktop"
     # .deb ships only the 256x256 icon.
     install -Dm644 "${srcdir}/usr/share/icons/hicolor/256x256/apps/${_pkgname}.png" "${pkgdir}/usr/share/icons/hicolor/256x256/apps/${pkgname%-bin}.png"
 }

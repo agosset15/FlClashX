@@ -9,13 +9,13 @@ import 'package:fl_clash/enum/enum.dart';
 import 'package:fl_clash/models/models.dart';
 import 'package:material_ui/material_ui.dart';
 
-const appName = 'FlClashX';
+const appName = 'KAGO';
 final appHelperService = helperServiceFor(pre: isPreDesktopApp);
 final appSystemName = isPreDesktopApp ? '$appName Pre' : appName;
 const coreManifestName = 'manifest.json';
 const browserUa =
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-const packageName = 'com.follow.clashx';
+const packageName = 'net.usekago.app';
 final unixSocketPath = '/tmp/FlClashSocket_${Random().nextInt(10000)}.sock';
 final windowsPipeName = '\\\\.\\pipe\\FlClashCore_${_randomPipeId()}';
 const helperPort = 47890;
@@ -130,7 +130,7 @@ const systemProxyAppliedKey = 'system_proxy_applied';
 const bootRecordKey = 'boot_record';
 const appliedConfigMd5Key = 'applied_config_md5';
 const defaultSystemDnsFallback = '1.1.1.1';
-const repository = 'pluralplay/FlClashX';
+const repository = 'agosset15/FlClashX';
 const maxMobileWidth = 600;
 const maxLaptopWidth = 840;
 const defaultTestUrl = 'https://www.gstatic.com/generate_204';
@@ -177,7 +177,7 @@ const proxiesListStoreKey = PageStorageKey<String>('proxies_list');
 const toolsStoreKey = PageStorageKey<String>('tools');
 const profilesStoreKey = PageStorageKey<String>('profiles');
 
-const defaultPrimaryColor = 0xFF03A9F4;
+const defaultPrimaryColor = 0xFF1A4780;
 
 const maxLogsLength = 5000;
 const maxRequestsLength = 2000;

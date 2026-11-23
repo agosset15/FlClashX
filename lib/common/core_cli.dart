@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'path.dart';
 import 'print.dart';
 
-/// `FlClashX --restart-core` asks the running app on this data directory to
+/// `KAGO --restart-core` asks the running app on this data directory to
 /// restart its Core, as the dashboard's button does, and exits with one of
 /// these codes.
 const restartCoreArgument = '--restart-core';
@@ -62,7 +62,7 @@ Future<CoreCliExit> runRestartCoreCli({
     endpoint = null;
   }
   if (endpoint == null) {
-    out('FlClashX is not running');
+    out('KAGO is not running');
     return CoreCliExit.notRunning;
   }
   final Socket socket;
@@ -73,7 +73,7 @@ Future<CoreCliExit> runRestartCoreCli({
       timeout: _connectTimeout,
     );
   } on SocketException {
-    out('FlClashX is not running');
+    out('KAGO is not running');
     return CoreCliExit.notRunning;
   }
   try {
@@ -95,7 +95,7 @@ Future<CoreCliExit> runRestartCoreCli({
     out('Core restart failed${error is String ? ': $error' : ''}');
     return CoreCliExit.failed;
   } catch (error) {
-    out('FlClashX did not answer: $error');
+    out('KAGO did not answer: $error');
     return CoreCliExit.noAnswer;
   } finally {
     socket.destroy();

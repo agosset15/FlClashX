@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "清除数据失败：${detail}";
 
   static String m5(code) =>
-      "Windows 拒绝运行 FlClashCore.exe（错误 ${code}）。智能应用控制、AppLocker 等应用控制策略会拦截未签名程序，请在该策略中放行 FlClashX 或关闭策略后重试。";
+      "Windows 拒绝运行 FlClashCore.exe（错误 ${code}）。智能应用控制、AppLocker 等应用控制策略会拦截未签名程序，请在该策略中放行 KAGO 或关闭策略后重试。";
 
   static String m6(name) =>
       "应用连续两次未能完成启动。为打断崩溃循环，已取消选中配置 ${name}，并跳过本次自动配置，你可以随时重新选中它。";
@@ -435,7 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("内核"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Windows 智能应用控制拦截了未签名的 FlClashCore.exe。请打开 Windows 安全中心 → 应用和浏览器控制 → 智能应用控制设置，选择「关闭」后重新启动 FlClashX。智能应用控制关闭后无法再开启，除非重装 Windows。",
+      "Windows 智能应用控制拦截了未签名的 FlClashCore.exe。请打开 Windows 安全中心 → 应用和浏览器控制 → 智能应用控制设置，选择「关闭」后重新启动 KAGO。智能应用控制关闭后无法再开启，除非重装 Windows。",
     ),
     "coreRestartByCommandFailed": MessageLookupByLibrary.simpleMessage(
       "命令未能重启核心",
@@ -529,7 +529,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discardChanges": MessageLookupByLibrary.simpleMessage("是否放弃更改？"),
     "disclaimer": MessageLookupByLibrary.simpleMessage("免责声明"),
     "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "FlClashX 是基于 Mihomo 内核的免费开源客户端。下面简要说明它做什么、不做什么以及收集哪些数据。点击“我同意”即表示接受这些条款。",
+      "KAGO 是基于 Mihomo 内核的免费开源客户端。下面简要说明它做什么、不做什么以及收集哪些数据。点击“我同意”即表示接受这些条款。",
     ),
     "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
       "源代码以 GPL-3.0 许可证开放。Mihomo 内核及其他第三方组件使用各自的许可证。作者不对经修改或由第三方分发的版本负责。",
@@ -680,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hashByInUser": MessageLookupByLibrary.simpleMessage("按入站用户哈希"),
     "healthCheck": MessageLookupByLibrary.simpleMessage("健康检查"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Helper 服务不可用，无法启用 TUN 模式，请重新安装 FlClashX。",
+      "Helper 服务不可用，无法启用 TUN 模式，请重新安装 KAGO。",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("十六进制"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("从列表中隐藏"),
@@ -739,7 +739,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("初始化"),
     "initFailed": MessageLookupByLibrary.simpleMessage("启动失败"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClashX 启动时出错，无法继续运行。可以复制错误详情用于反馈；如果问题反复出现，清除数据后通常可以重新启动。",
+      "KAGO 启动时出错，无法继续运行。可以复制错误详情用于反馈；如果问题反复出现，清除数据后通常可以重新启动。",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("发起方"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("发起"),
@@ -1040,9 +1040,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "portValue": m61,
     "ports": MessageLookupByLibrary.simpleMessage("端口"),
     "preChannelTip": MessageLookupByLibrary.simpleMessage(
-      "此预发布版是独立的应用，无法读取 FlClashX 的配置。要迁移配置，请在 FlClashX 的“备份与恢复”中创建备份并在此处恢复，或通过链接重新添加订阅。",
+      "此预发布版是独立的应用，无法读取 KAGO 的配置。要迁移配置，请在 KAGO 的“备份与恢复”中创建备份并在此处恢复，或通过链接重新添加订阅。",
     ),
-    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("FlClashX Pre"),
+    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("KAGO Pre"),
     "preSharedKey": MessageLookupByLibrary.simpleMessage("预共享密钥"),
     "preferred": MessageLookupByLibrary.simpleMessage("首选"),
     "prerequisites": MessageLookupByLibrary.simpleMessage("前置条件"),
@@ -1363,10 +1363,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "已发送，请在另一台设备上确认导入。",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "把链接发送到 FlClashX",
+      "把链接发送到 KAGO",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "从手机接收链接需要「附近的设备」权限，FlClashX 才能访问局域网。请在应用设置中开启。",
+      "从手机接收链接需要「附近的设备」权限，KAGO 才能访问局域网。请在应用设置中开启。",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "用手机相机扫描二维码，在打开的页面里粘贴链接。两台设备需要连在同一个网络。如果在 Android 17 及以上版本无法打开页面，请给手机浏览器开启「附近的设备」权限。",
@@ -1395,7 +1395,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareLinksInvalid": MessageLookupByLibrary.simpleMessage("无法从链接中读取代理"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("分享日志"),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "在另一台设备上用 FlClashX 扫码即可导入此配置。",
+      "在另一台设备上用 KAGO 扫码即可导入此配置。",
     ),
     "show": MessageLookupByLibrary.simpleMessage("显示"),
     "showLess": MessageLookupByLibrary.simpleMessage("收起"),
@@ -1439,11 +1439,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "stableImportRetry": MessageLookupByLibrary.simpleMessage("重试"),
     "stableImportSkip": MessageLookupByLibrary.simpleMessage("不迁移，继续"),
     "stableImportTip": MessageLookupByLibrary.simpleMessage(
-      "FlClashX Pre 暂时无法读取 FlClashX 的配置和设置。如果 FlClashX 正在运行，请退出后重试。",
+      "KAGO Pre 暂时无法读取 KAGO 的配置和设置。如果 KAGO 正在运行，请退出后重试。",
     ),
-    "stableImportTitle": MessageLookupByLibrary.simpleMessage(
-      "迁移 FlClashX 的配置",
-    ),
+    "stableImportTitle": MessageLookupByLibrary.simpleMessage("迁移 KAGO 的配置"),
     "stackMode": MessageLookupByLibrary.simpleMessage("栈模式"),
     "stackTrace": MessageLookupByLibrary.simpleMessage("堆栈信息"),
     "standard": MessageLookupByLibrary.simpleMessage("标准"),

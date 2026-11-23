@@ -516,7 +516,7 @@ jobs:
             done
             spctl --assess --type open --context context:primary-signature -vv "$dmg"
           done
-          spctl --assess --type execute -vv build/macos/Build/Products/Release/FlClashX.app
+          spctl --assess --type execute -vv build/macos/Build/Products/Release/KAGO.app
           rm "$key"
 
       - name: Upload
@@ -612,7 +612,7 @@ jobs:
             exit 0
           fi
           dart run tool/sign_update_manifest.dart --version "$TAG" \
-            --base-url "https://github.com/pluralplay/FlClashX/releases/download/$TAG" \
+            --base-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG" \
             --out ./dist/manifest.json ./dist
 
       - name: Release

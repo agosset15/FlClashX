@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:launch_at_startup/launch_at_startup.dart';
 
-import 'constant.dart';
+import 'constant.dart' show safeModeBuild;
+import 'desktop_channel.dart';
 import 'system.dart';
 
 class AutoLaunch {
@@ -12,7 +13,7 @@ class AutoLaunch {
 
   AutoLaunch._internal() {
     launcher.setup(
-      appName: appSystemName,
+      appName: isPreDesktopApp ? 'FlClashX Pre' : 'FlClashX',
       appPath: Platform.resolvedExecutable,
     );
   }

@@ -12,16 +12,16 @@ void main() {
 
       expect(
         config,
-        contains('PRODUCT_BUNDLE_IDENTIFIER = com.follow.clashx.pre'),
+        contains('PRODUCT_BUNDLE_IDENTIFIER = net.usekago.app.pre'),
       );
-      expect(config, contains('APP_DISPLAY_NAME = FlClashX Pre'));
-      expect(setup.macosBundleName('pre'), 'FlClashX Pre.app');
+      expect(config, contains('APP_DISPLAY_NAME = KAGO Pre'));
+      expect(setup.macosBundleName('pre'), 'KAGO Pre.app');
     });
 
     test('stable and dev builds of macOS keep the stable identity', () {
       for (final env in ['stable', 'dev']) {
         expect(setup.macosChannelConfig(env), isNull);
-        expect(setup.macosBundleName(env), 'FlClashX.app');
+        expect(setup.macosBundleName(env), 'KAGO.app');
       }
     });
 
@@ -48,7 +48,7 @@ void main() {
 
       expect(check, isNonNegative);
       expect(check, lessThan(sources));
-      expect(project, contains(r'expected=com.follow.clashx.pre'));
+      expect(project, contains(r'expected=net.usekago.app.pre'));
       expect(
         project,
         contains(r'[ \"$CONFIGURATION\" = \"Debug\" ] && exit 0'),
@@ -142,7 +142,7 @@ hooks:
     test('signs the code inside the macOS app before the app', () {
       final root = Directory.systemTemp.createTempSync('setup_sign');
       addTearDown(() => root.deleteSync(recursive: true));
-      final app = p.join(root.path, 'FlClashX.app');
+      final app = p.join(root.path, 'KAGO.app');
       String at(String path) => p.joinAll([app, ...path.split('/')]);
       for (final dir in [
         'Contents/Frameworks/FlutterMacOS.framework',
@@ -153,7 +153,7 @@ hooks:
         Directory(at(dir)).createSync(recursive: true);
       }
       for (final file in [
-        'Contents/MacOS/FlClashX',
+        'Contents/MacOS/KAGO',
         'Contents/MacOS/FlClashCore',
         'Contents/Frameworks/Info.plist',
       ]) {
@@ -363,7 +363,7 @@ hooks:
       test('installs under its own id, name, Helper and data', () {
         final pre = render(setup.preDesktop);
         expect(pre, isNot(contains('D915C0D1-2F5B-4676-97D5-6D55F3EF45A4')));
-        expect(pre, contains(r'DefaultDirName={autopf}\FlClashX Pre'));
+        expect(pre, contains(r'DefaultDirName={autopf}\KAGO Pre'));
         expect(pre, contains("HelperService = 'FlClashXPreHelperService';"));
         expect(pre, contains('AdoptLegacy = False;'));
         expect(pre, contains("KillProcess('FlClashXPre.exe');"));
@@ -393,7 +393,7 @@ hooks:
       test('packages for Linux under its own names', () {
         final linuxConfig = {
           'display_name': 'FlClashX',
-          'startup_wm_class': 'com.follow.clashx',
+          'startup_wm_class': 'net.usekago.app',
           'maintainer': {'name': 'pluralplay', 'email': 'x@example.com'},
           'postuninstall_scripts': [
             'rm -f /etc/systemd/system/flclashx-helper.service',
@@ -406,7 +406,7 @@ hooks:
           arch: 'amd64',
         );
         expect(control, contains('Package: flclashx-pre'));
-        expect(control, contains('Description: FlClashX Pre'));
+        expect(control, contains('Description: KAGO Pre'));
         final spec = setup.rpmSpecOf(
           linuxConfig,
           setup.preDesktop,
@@ -416,7 +416,7 @@ hooks:
         expect(spec, contains('/opt/FlClashXPre/*'));
         expect(
           spec,
-          contains('/usr/share/applications/com.follow.clashx.pre.desktop'),
+          contains('/usr/share/applications/net.usekago.app.pre.desktop'),
         );
         expect(spec, contains('apps/FlClashXPre.png'));
         expect(spec, contains('flclashx-pre-helper.service'));
@@ -426,10 +426,10 @@ hooks:
           exec: setup.linuxExecOf(setup.preDesktop),
           identity: setup.preDesktop,
         );
-        expect(entry, contains('Name=FlClashX Pre'));
+        expect(entry, contains('Name=KAGO Pre'));
         expect(entry, contains('Exec=/opt/FlClashXPre/FlClashXPre %u'));
         expect(entry, contains('Icon=FlClashXPre'));
-        expect(entry, contains('StartupWMClass=com.follow.clashx.pre'));
+        expect(entry, contains('StartupWMClass=net.usekago.app.pre'));
         expect(
           setup.debControlOf(
             linuxConfig,
@@ -443,7 +443,7 @@ hooks:
           setup.desktopEntry(linuxConfig, exec: '/opt/FlClashX/FlClashX'),
           allOf(
             contains('Icon=FlClashX\n'),
-            contains('StartupWMClass=com.follow.clashx\n'),
+            contains('StartupWMClass=net.usekago.app\n'),
           ),
         );
       });

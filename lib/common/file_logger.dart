@@ -13,7 +13,7 @@ const logsDirectoryName = 'logs';
 
 typedef ArchiveRequest = ({String archivePath, List<String> files});
 
-/// Appends every log line to `logs/FlClashX_<day>.log` under the app home,
+/// Appends every log line to `logs/KAGO_<day>.log` under the app home,
 /// starts `_<n>` files past [maxFileBytes] and drops days older than [keepDays].
 class FileLogger {
   FileLogger({
@@ -44,7 +44,7 @@ class FileLogger {
   int _size = 0;
 
   static final _dayPattern = RegExp(
-    r'^FlClashX_(\d{4}-\d{2}-\d{2})(?:_\d+)?\.log$',
+    r'^(?:KAGO|FlClashX)_(\d{4}-\d{2}-\d{2})(?:_\d+)?\.log$',
   );
 
   static Future<String> _defaultDirectory() async =>
@@ -138,7 +138,8 @@ class FileLogger {
     await for (final entity in folder.list(followLinks: false)) {
       final name = basename(entity.path);
       if (entity is! File ||
-          !name.startsWith(_archivePrefix) ||
+          !(name.startsWith(_archivePrefix) ||
+              name.startsWith('FlClashX_logs_')) ||
           extension(name) != '.zip') {
         continue;
       }

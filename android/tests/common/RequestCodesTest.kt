@@ -1,4 +1,4 @@
-package com.follow.clashx.common
+package net.usekago.app.common
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

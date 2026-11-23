@@ -865,20 +865,20 @@ class AppLocalizations {
     );
   }
 
-  /// `Receiving a link from your phone needs the Nearby devices permission, which lets FlClashX reach the local network. Turn it on in the app's settings.`
+  /// `Receiving a link from your phone needs the Nearby devices permission, which lets KAGO reach the local network. Turn it on in the app's settings.`
   String get sendFromPhonePermissionDenied {
     return Intl.message(
-      'Receiving a link from your phone needs the Nearby devices permission, which lets FlClashX reach the local network. Turn it on in the app\'s settings.',
+      'Receiving a link from your phone needs the Nearby devices permission, which lets KAGO reach the local network. Turn it on in the app\'s settings.',
       name: 'sendFromPhonePermissionDenied',
       desc: '',
       args: [],
     );
   }
 
-  /// `Send a link to FlClashX`
+  /// `Send a link to KAGO`
   String get sendFromPhonePageTitle {
     return Intl.message(
-      'Send a link to FlClashX',
+      'Send a link to KAGO',
       name: 'sendFromPhonePageTitle',
       desc: '',
       args: [],
@@ -920,10 +920,10 @@ class AppLocalizations {
     );
   }
 
-  /// `Scan with FlClashX on another device to import this profile.`
+  /// `Scan with KAGO on another device to import this profile.`
   String get shareQrcodeTip {
     return Intl.message(
-      'Scan with FlClashX on another device to import this profile.',
+      'Scan with KAGO on another device to import this profile.',
       name: 'shareQrcodeTip',
       desc: '',
       args: [],
@@ -2586,10 +2586,10 @@ class AppLocalizations {
     return Intl.message('Disclaimer', name: 'disclaimer', desc: '', args: []);
   }
 
-  /// `FlClashX is a free, open-source client built on the Mihomo core. Here is a short note on what it does, what it does not do and what data it collects. By tapping “I agree” you accept these terms.`
+  /// `KAGO is a free, open-source client built on the Mihomo core. Here is a short note on what it does, what it does not do and what data it collects. By tapping “I agree” you accept these terms.`
   String get disclaimerDesc {
     return Intl.message(
-      'FlClashX is a free, open-source client built on the Mihomo core. Here is a short note on what it does, what it does not do and what data it collects. By tapping “I agree” you accept these terms.',
+      'KAGO is a free, open-source client built on the Mihomo core. Here is a short note on what it does, what it does not do and what data it collects. By tapping “I agree” you accept these terms.',
       name: 'disclaimerDesc',
       desc: '',
       args: [],
@@ -4771,10 +4771,10 @@ class AppLocalizations {
     );
   }
 
-  /// `Helper service unavailable; TUN mode cannot be enabled. Reinstall FlClashX to restore it.`
+  /// `Helper service unavailable; TUN mode cannot be enabled. Reinstall KAGO to restore it.`
   String get helperCorruptTip {
     return Intl.message(
-      'Helper service unavailable; TUN mode cannot be enabled. Reinstall FlClashX to restore it.',
+      'Helper service unavailable; TUN mode cannot be enabled. Reinstall KAGO to restore it.',
       name: 'helperCorruptTip',
       desc: '',
       args: [],
@@ -4811,20 +4811,20 @@ class AppLocalizations {
     );
   }
 
-  /// `Windows refused to run FlClashCore.exe (error {code}). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow FlClashX in that policy or turn it off, then try again.`
+  /// `Windows refused to run FlClashCore.exe (error {code}). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow KAGO in that policy or turn it off, then try again.`
   String coreBlockedByPolicyTip(Object code) {
     return Intl.message(
-      'Windows refused to run FlClashCore.exe (error $code). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow FlClashX in that policy or turn it off, then try again.',
+      'Windows refused to run FlClashCore.exe (error $code). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow KAGO in that policy or turn it off, then try again.',
       name: 'coreBlockedByPolicyTip',
       desc: '',
       args: [code],
     );
   }
 
-  /// `Windows Smart App Control blocked FlClashCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start FlClashX again. Smart App Control cannot be turned back on without reinstalling Windows.`
+  /// `Windows Smart App Control blocked FlClashCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start KAGO again. Smart App Control cannot be turned back on without reinstalling Windows.`
   String get coreBlockedBySmartAppControlTip {
     return Intl.message(
-      'Windows Smart App Control blocked FlClashCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start FlClashX again. Smart App Control cannot be turned back on without reinstalling Windows.',
+      'Windows Smart App Control blocked FlClashCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start KAGO again. Smart App Control cannot be turned back on without reinstalling Windows.',
       name: 'coreBlockedBySmartAppControlTip',
       desc: '',
       args: [],
@@ -6879,10 +6879,10 @@ class AppLocalizations {
     );
   }
 
-  /// `FlClashX ran into an error while starting and can't continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.`
+  /// `KAGO ran into an error while starting and can't continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.`
   String get initFailedTip {
     return Intl.message(
-      'FlClashX ran into an error while starting and can\'t continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.',
+      'KAGO ran into an error while starting and can\'t continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.',
       name: 'initFailedTip',
       desc: '',
       args: [],
@@ -8207,20 +8207,20 @@ class AppLocalizations {
     );
   }
 
-  /// `FlClashX Pre`
+  /// `KAGO Pre`
   String get preChannelTipTitle {
     return Intl.message(
-      'FlClashX Pre',
+      'KAGO Pre',
       name: 'preChannelTipTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `This pre-release is a separate app and can't see FlClashX's profiles. To bring them over, make a backup in FlClashX under Backup and restore and restore it here, or add your subscriptions again by link.`
+  /// `This pre-release is a separate app and can't see KAGO's profiles. To bring them over, make a backup in KAGO under Backup and restore and restore it here, or add your subscriptions again by link.`
   String get preChannelTip {
     return Intl.message(
-      'This pre-release is a separate app and can\'t see FlClashX\'s profiles. To bring them over, make a backup in FlClashX under Backup and restore and restore it here, or add your subscriptions again by link.',
+      'This pre-release is a separate app and can\'t see KAGO\'s profiles. To bring them over, make a backup in KAGO under Backup and restore and restore it here, or add your subscriptions again by link.',
       name: 'preChannelTip',
       desc: '',
       args: [],
@@ -8412,20 +8412,20 @@ class AppLocalizations {
     );
   }
 
-  /// `Bring over your FlClashX profiles`
+  /// `Bring over your KAGO profiles`
   String get stableImportTitle {
     return Intl.message(
-      'Bring over your FlClashX profiles',
+      'Bring over your KAGO profiles',
       name: 'stableImportTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `FlClashX Pre couldn't take FlClashX's profiles and settings yet. If FlClashX is running, quit it and retry.`
+  /// `KAGO Pre couldn't take KAGO's profiles and settings yet. If KAGO is running, quit it and retry.`
   String get stableImportTip {
     return Intl.message(
-      'FlClashX Pre couldn\'t take FlClashX\'s profiles and settings yet. If FlClashX is running, quit it and retry.',
+      'KAGO Pre couldn\'t take KAGO\'s profiles and settings yet. If KAGO is running, quit it and retry.',
       name: 'stableImportTip',
       desc: '',
       args: [],

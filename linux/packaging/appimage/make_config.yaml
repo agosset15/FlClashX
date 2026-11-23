@@ -1,4 +1,4 @@
-display_name: FlClashX
+display_name: KAGO
 
 icon: ./assets/images/icon.png
 
@@ -15,13 +15,13 @@ keywords:
   - Mihomo
   - Proxy
 
-generic_name: FlClashX
+generic_name: KAGO
 
 categories:
   - Network
 
 startup_notify: true
 
-startup_wm_class: com.follow.clashx
+startup_wm_class: net.usekago.app
 
 include: []

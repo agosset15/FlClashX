@@ -1,6 +1,6 @@
-package com.follow.clashx.service.models
+package net.usekago.app.service.models
 
-import com.follow.clashx.common.AccessControlMode
+import net.usekago.app.common.AccessControlMode
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import java.net.Inet4Address

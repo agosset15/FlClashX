@@ -1,9 +1,9 @@
-package com.follow.clashx.service
+package net.usekago.app.service
 
-import com.follow.clashx.common.AccessControlMode
-import com.follow.clashx.service.models.AccessControlProps
-import com.follow.clashx.service.models.NotificationParams
-import com.follow.clashx.service.models.VpnOptions
+import net.usekago.app.common.AccessControlMode
+import net.usekago.app.service.models.AccessControlProps
+import net.usekago.app.service.models.NotificationParams
+import net.usekago.app.service.models.VpnOptions
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotSame
@@ -33,7 +33,7 @@ class ServiceConfigTest {
     fun `notification params default to the app name and stop label`() {
         val defaults = NotificationParams()
 
-        assertEquals("FlClashX", defaults.title)
+        assertEquals("KAGO", defaults.title)
         assertEquals("STOP", defaults.stopText)
         assertEquals(true, defaults.showStopAction)
     }

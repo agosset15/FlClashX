@@ -8,8 +8,8 @@
   --ink-3: #72686a;
   --line: rgb(38 33 34 / 0.1);
   --line-strong: rgb(38 33 34 / 0.2);
-  --accent: #6b5059;
-  --accent-soft: #e5d9da;
+  --accent: #1a4780;
+  --accent-soft: #dce7f5;
   --on-accent: #fbf7f4;
 
   --rose: #c3a1a8;
@@ -20,8 +20,6 @@
   --lilac: #aca4c1;
 
   --g1: #7d79b0;
-  --g2: #58738f;
-  --g3: #92b1ca;
 
   --field-1: #e7e0d8;
   --field-2: var(--oat);
@@ -81,9 +79,9 @@
     --ink-3: #978d8d;
     --line: rgb(235 229 226 / 0.09);
     --line-strong: rgb(235 229 226 / 0.18);
-    --accent: #dcc3c8;
-    --accent-soft: #3a3033;
-    --on-accent: #33262a;
+    --accent: #a8cbf5;
+    --accent-soft: #23374e;
+    --on-accent: #132b49;
     --rose: #7b5f66;
     --clay: #806657;
     --oat: #6a6254;
@@ -91,8 +89,6 @@
     --slate: #546575;
     --lilac: #655e7b;
     --g1: #9a96cb;
-    --g2: #6f90b4;
-    --g3: #a2c4de;
     --field-1: #2a2627;
     --feat: #a9bb9f;
     --fix: #9fb3c5;
@@ -113,9 +109,9 @@
   --ink-3: #978d8d;
   --line: rgb(235 229 226 / 0.09);
   --line-strong: rgb(235 229 226 / 0.18);
-  --accent: #dcc3c8;
-  --accent-soft: #3a3033;
-  --on-accent: #33262a;
+  --accent: #a8cbf5;
+  --accent-soft: #23374e;
+  --on-accent: #132b49;
   --rose: #7b5f66;
   --clay: #806657;
   --oat: #6a6254;
@@ -123,8 +119,6 @@
   --slate: #546575;
   --lilac: #655e7b;
   --g1: #9a96cb;
-  --g2: #6f90b4;
-  --g3: #a2c4de;
   --field-1: #2a2627;
   --feat: #a9bb9f;
   --fix: #9fb3c5;
@@ -303,17 +297,6 @@ button {
   overflow: visible;
 }
 
-.sig-3 {
-  stroke: var(--g1);
-}
-
-.sig-2 {
-  stroke: var(--g2);
-}
-
-.sig-1 {
-  fill: var(--g3);
-}
 
 .nav-links,
 .nav-tools {
@@ -685,10 +668,7 @@ button {
   width: 100%;
   height: auto;
   transform-origin: 50% 100%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 96%, transparent), linear-gradient(to right, #000 97.5%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, #000 96%, transparent), linear-gradient(to right, #000 97.5%, transparent);
-  mask-composite: intersect;
+  border-radius: var(--r-lg);
 }
 
 .facts {
@@ -1695,27 +1675,16 @@ mark {
     animation: drop 0.8s both;
   }
 
-  .glyph.enter .sig,
-  .foot.shown .sig {
+  .glyph.enter,
+  .foot.shown .glyph {
     animation: signal-in 0.8s var(--spring-pop) backwards;
   }
 
-  .glyph.wave .sig,
-  .foot-brand:hover .sig {
+  .glyph.wave,
+  .foot-brand:hover .glyph {
     animation: signal-wave 0.7s var(--ease-out);
   }
 
-  .glyph:is(.enter, .wave) .sig-2,
-  .foot.shown .sig-2,
-  .foot-brand:hover .sig-2 {
-    animation-delay: 0.09s;
-  }
-
-  .glyph:is(.enter, .wave) .sig-3,
-  .foot.shown .sig-3,
-  .foot-brand:hover .sig-3 {
-    animation-delay: 0.18s;
-  }
 
   .pending:is(.rail, .facts) > *,
   .dl.pending,

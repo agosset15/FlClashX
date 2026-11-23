@@ -37,13 +37,13 @@ function structuredData(t, page) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'FlClash',
+    name: 'KAGO',
     url: siteUrl + page.path,
     description: t.pageDescription,
     inLanguage: page.locale,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Android, Windows, macOS, Linux',
-    image: `${siteUrl}preview.png`,
+    image: `${siteUrl}og-cover.png`,
     downloadUrl: `${REPO}/releases/latest`,
     ...(latest ? { softwareVersion: latest.version, dateModified: latest.date || undefined } : {}),
     license: 'https://www.gnu.org/licenses/gpl-3.0.html',
@@ -64,7 +64,8 @@ function render(page) {
   html = replaceOnce(html, /<title>[^<]*<\/title>/, `<title>${text('pageTitle')}</title>`);
   html = replaceOnce(html, /(<meta name="description" content=")[^"]*/, `$1${text('pageDescription')}`);
   html = replaceOnce(html, /(<meta property="og:description" content=")[^"]*/, `$1${text('heroLede')}`);
-  html = replaceOnce(html, /(<meta property="og:image" content=")[^"]*/, `$1${siteUrl}preview.png`);
+  html = replaceOnce(html, /(<meta property="og:image" content=")[^"]*/, `$1${siteUrl}og-cover.png`);
+  html = replaceOnce(html, /(<meta name="twitter:image" content=")[^"]*/, `$1${siteUrl}og-cover.png`);
   const alternates = PAGES.map(
     (p) => `  <link rel="alternate" hreflang="${p.locale}" href="${siteUrl}${p.path}">`,
   ).join('\n');
@@ -76,7 +77,7 @@ function render(page) {
     `  <meta property="og:locale" content="${page.ogLocale}">`,
     `  <script type="application/ld+json">${JSON.stringify(structuredData(t, page)).replace(/</g, '\\u003c')}</script>`,
   ].join('\n');
-  html = replaceOnce(html, /(<meta name="twitter:card"[^>]*>\n)/, `$1${head}\n`);
+  html = replaceOnce(html, /(<meta name="twitter:image"[^>]*>\r?\n)/, `$1${head}\n`);
 
   html = html.replace(
     /(<(\w+)\b[^>]*\bdata-i18n="(\w+)"[^>]*>)[^<]*(<\/\2>)/g,

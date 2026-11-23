@@ -1,11 +1,11 @@
-package com.follow.clashx
+package net.usekago.app
 
-import com.follow.clashx.common.AccessControlMode
-import com.follow.clashx.models.SetupParams
-import com.follow.clashx.models.SharedState
-import com.follow.clashx.service.models.AccessControlProps
-import com.follow.clashx.service.models.NotificationParams
-import com.follow.clashx.service.models.VpnOptions
+import net.usekago.app.common.AccessControlMode
+import net.usekago.app.models.SetupParams
+import net.usekago.app.models.SharedState
+import net.usekago.app.service.models.AccessControlProps
+import net.usekago.app.service.models.NotificationParams
+import net.usekago.app.service.models.VpnOptions
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -151,7 +151,7 @@ private class FakeHost(override val scope: CoroutineScope) : ServiceStateHost {
     var lastStartOptions: VpnOptions? = null
 
     override var runtime: ServiceRuntime? = null
-    override val homeDirPath = "/data/user/0/com.follow.clashx/files"
+    override val homeDirPath = "/data/user/0/net.usekago.app/files"
     override val sdkInt = 34
 
     val toasts = mutableListOf<String>()

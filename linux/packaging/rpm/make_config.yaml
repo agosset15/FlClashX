@@ -1,4 +1,4 @@
-display_name: FlClashX
+display_name: KAGO
 
 packager: pluralplay
 packagerEmail: pluralplay@icloud.com
@@ -46,10 +46,10 @@ keywords:
   - Mihomo
   - Proxy
 
-generic_name: FlClashX
+generic_name: KAGO
 
 group: Applications/Internet
 
 startup_notify: true
 
-startup_wm_class: com.follow.clashx
+startup_wm_class: net.usekago.app

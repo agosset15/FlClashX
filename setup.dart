@@ -6,7 +6,8 @@ import 'package:path/path.dart' as p;
 import 'package:yaml/yaml.dart';
 
 const _appName = 'FlClashX';
-const _bundleId = 'com.follow.clashx';
+const _displayName = 'KAGO';
+const _bundleId = 'net.usekago.app';
 const _distDir = 'dist';
 
 const _allTargets = <String, String>{
@@ -183,14 +184,14 @@ String createPackageTargets(String platform, String? customTargets) {
 /// pre-release gets its own bundle id and name, so it installs beside the
 /// stable app; null for every other build, which goes without the file.
 String? macosChannelConfig(String env) => env == 'pre'
-    ? 'PRODUCT_BUNDLE_IDENTIFIER = com.follow.clashx.pre\n'
-          'APP_DISPLAY_NAME = $_appName Pre\n'
+    ? 'PRODUCT_BUNDLE_IDENTIFIER = $_bundleId.pre\n'
+          'APP_DISPLAY_NAME = $_displayName Pre\n'
     : null;
 
 /// The `.app` name a DMG of [env] installs, kept apart from the stable one in
 /// `/Applications`.
 String macosBundleName(String env) =>
-    env == 'pre' ? '$_appName Pre.app' : '$_appName.app';
+    env == 'pre' ? '$_displayName Pre.app' : '$_displayName.app';
 
 /// The app and the Helper derive their system names from these executables'.
 class DesktopIdentity {
@@ -221,7 +222,7 @@ const stableDesktop = DesktopIdentity(
   pre: false,
   executable: _appName,
   helper: 'FlClashXHelperService',
-  displayName: _appName,
+  displayName: _displayName,
   bundleId: _bundleId,
   packageName: 'flclashx',
   installDir: _appName,
@@ -233,7 +234,7 @@ const preDesktop = DesktopIdentity(
   pre: true,
   executable: 'FlClashXPre',
   helper: 'FlClashXPreHelperService',
-  displayName: '$_appName Pre',
+  displayName: '$_displayName Pre',
   bundleId: '$_bundleId.pre',
   packageName: 'flclashx-pre',
   installDir: 'FlClashXPre',
@@ -507,7 +508,7 @@ Future<void> _packageMacos(_Build build, {required String env}) async {
     if (channel.existsSync()) channel.deleteSync();
   }
   final products = p.join(build.rootDir, 'build/macos/Build/Products/Release');
-  final built = p.join(products, '$_appName.app');
+  final built = p.join(products, macosBundleName('stable'));
   final app = p.join(products, macosBundleName(env));
   if (app != built) {
     if (Directory(app).existsSync()) Directory(app).deleteSync(recursive: true);
@@ -570,7 +571,7 @@ List<String> macosSigningOrder(String app) {
       p.join('Library', 'LoginItems'),
       (path) => path.endsWith('.app'),
     ),
-    ...entries('MacOS', (path) => p.basename(path) != _appName),
+    ...entries('MacOS', (path) => p.basename(path) != _displayName),
     app,
   ];
 }
@@ -724,7 +725,7 @@ String renderInnoSetup(
 }) {
   final displayName = identity.pre
       ? identity.displayName
-      : (config['display_name'] ?? _appName) as String;
+      : (config['display_name'] ?? _displayName) as String;
   final privileges = (config['privileges_required'] ?? 'admin') as String;
   final locales = (config['locales'] as List?) ?? const [];
   final chineseIsl = p.join(
@@ -827,7 +828,7 @@ String desktopEntry(
   ];
   final name = identity.pre
       ? identity.displayName
-      : (config['display_name'] ?? _appName) as String;
+      : (config['display_name'] ?? _displayName) as String;
   return [
     '[Desktop Entry]',
     'Type=Application',
@@ -920,7 +921,7 @@ String debControlOf(
       'Installed-Size: ${config['installed_size']}',
     if (depends.isNotEmpty) 'Depends: ${depends.join(', ')}',
     'Maintainer: ${maintainer['name']} <${maintainer['email']}>',
-    'Description: ${identity.pre ? identity.displayName : config['display_name'] ?? _appName}',
+    'Description: ${identity.pre ? identity.displayName : config['display_name'] ?? _displayName}',
     '',
   ].join('\n');
 }
@@ -969,7 +970,7 @@ String rpmSpecOf(
   ];
   final name = identity.pre
       ? identity.displayName
-      : (config['display_name'] ?? _appName) as String;
+      : (config['display_name'] ?? _displayName) as String;
   final postun = channelScripts(
     _scripts(config, 'postuninstall_scripts'),
     identity,

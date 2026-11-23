@@ -134,7 +134,7 @@
     if (!release) return [];
     return buildsFor(platform, arch)
       .map((build) => {
-        const name = `FlClash-${release.version}-${build.id}`;
+        const name = `FlClashX-${build.id}`;
         const asset = release.assets ? release.assets.get(name) : null;
         if (release.assets && !asset) return null;
         return {
@@ -412,29 +412,15 @@
       case 'android':
         return [
           tip(
-            'tipFdroidTitle',
-            'tipFdroid',
-            el(
-              'p',
-              {},
-              el('a', {
-                href: 'https://chen08209.github.io/FlClash-fdroid-repo/repo?fingerprint=789D6D32668712EF7672F9E58DEEB15FBD6DCEEC5AE7A4371EA72F2AAE8A12FD',
-                text: t('tipFdroidLink'),
-              }),
-            ),
-          ),
-          tip(
             'tipIntentTitle',
             'tipIntent',
             commandBlock(
-              ['com.follow.clash.action.START', 'com.follow.clash.action.STOP', 'com.follow.clash.action.TOGGLE'].join(
+              ['net.usekago.app.action.START', 'net.usekago.app.action.STOP', 'net.usekago.app.action.TOGGLE'].join(
                 '\n',
               ),
             ),
           ),
         ];
-      case 'macos':
-        return [tip('tipBrewTitle', 'tipBrew', commandBlock('brew tap chen08209/tap\nbrew install --cask flclash'))];
       case 'linux':
         return [
           tip(
@@ -739,11 +725,6 @@
     return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
-  function syncShot() {
-    const theme = root.dataset.theme;
-    $('#shot-dark').media = theme ? (theme === 'dark' ? 'all' : 'not all') : '(prefers-color-scheme: dark)';
-  }
-
   function laneWipe(originX, originY) {
     const width = innerWidth;
     const height = innerHeight;
@@ -774,7 +755,6 @@
     const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
     const apply = () => {
       root.dataset.theme = next;
-      syncShot();
       field?.refresh();
       try {
         localStorage.setItem('flclash.theme', next);
@@ -848,9 +828,8 @@
 
   function wireGlyph() {
     const glyph = $('.brand .glyph');
-    const last = $('.sig-3', glyph);
     glyph.addEventListener('animationend', (event) => {
-      if (event.target === last) glyph.classList.remove('enter', 'wave');
+      if (event.target === glyph) glyph.classList.remove('enter', 'wave');
     });
     $('.brand').addEventListener('mouseenter', () => {
       if (!glyph.classList.contains('enter')) glyph.classList.add('wave');
@@ -1031,7 +1010,6 @@
 
   async function start() {
     const carried = takeCarriedView();
-    syncShot();
     splitWordmark();
     applyStaticText();
     reel.build();

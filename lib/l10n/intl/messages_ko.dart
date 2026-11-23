@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "데이터를 지우지 못했습니다: ${detail}";
 
   static String m5(code) =>
-      "Windows에서 FlClashCore.exe 실행을 거부했습니다(오류 ${code}). Smart App Control이나 AppLocker와 같은 앱 제어 정책이 서명되지 않은 프로그램을 차단합니다. 해당 정책에서 FlClashX를 허용하거나 정책을 끈 후 다시 시도하세요.";
+      "Windows에서 FlClashCore.exe 실행을 거부했습니다(오류 ${code}). Smart App Control이나 AppLocker와 같은 앱 제어 정책이 서명되지 않은 프로그램을 차단합니다. 해당 정책에서 KAGO를 허용하거나 정책을 끈 후 다시 시도하세요.";
 
   static String m6(name) =>
       "앱이 두 번 연속 시작을 완료하지 못했습니다. 반복을 끊기 위해 프로필 ${name}의 선택을 해제하고 자동 설정을 건너뛰었습니다. 언제든지 다시 선택할 수 있습니다.";
@@ -459,7 +459,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("코어"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "서명되지 않아 Windows Smart App Control이 FlClashCore.exe를 차단했습니다. Windows 보안 → 앱 및 브라우저 컨트롤 → Smart App Control 설정에서 끔을 선택한 후 FlClashX를 다시 시작하세요. Smart App Control은 Windows를 다시 설치하지 않으면 다시 켤 수 없습니다.",
+      "서명되지 않아 Windows Smart App Control이 FlClashCore.exe를 차단했습니다. Windows 보안 → 앱 및 브라우저 컨트롤 → Smart App Control 설정에서 끔을 선택한 후 KAGO를 다시 시작하세요. Smart App Control은 Windows를 다시 설치하지 않으면 다시 켤 수 없습니다.",
     ),
     "coreRestartByCommandFailed": MessageLookupByLibrary.simpleMessage(
       "명령으로 코어를 다시 시작하지 못했습니다",
@@ -567,7 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discardChanges": MessageLookupByLibrary.simpleMessage("변경 사항을 취소하시겠습니까?"),
     "disclaimer": MessageLookupByLibrary.simpleMessage("면책 조항"),
     "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "FlClashX는 Mihomo 코어 기반의 무료 오픈소스 클라이언트입니다. 무엇을 하고, 무엇을 하지 않으며, 어떤 데이터를 수집하는지 간단히 안내합니다. “동의합니다”를 누르면 이 조건에 동의하는 것입니다.",
+      "KAGO는 Mihomo 코어 기반의 무료 오픈소스 클라이언트입니다. 무엇을 하고, 무엇을 하지 않으며, 어떤 데이터를 수집하는지 간단히 안내합니다. “동의합니다”를 누르면 이 조건에 동의하는 것입니다.",
     ),
     "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
       "소스 코드는 GPL-3.0 라이선스로 공개되어 있습니다. Mihomo 코어와 기타 제3자 구성 요소는 각자의 라이선스를 따릅니다. 수정되었거나 제3자가 배포한 빌드에 대해 작성자는 책임지지 않습니다.",
@@ -728,7 +728,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hashByInUser": MessageLookupByLibrary.simpleMessage("인바운드 사용자별 해시"),
     "healthCheck": MessageLookupByLibrary.simpleMessage("상태 확인"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "헬퍼 서비스를 사용할 수 없어 TUN 모드를 켤 수 없습니다. FlClashX를 다시 설치하여 복구하세요.",
+      "헬퍼 서비스를 사용할 수 없어 TUN 모드를 켤 수 없습니다. KAGO를 다시 설치하여 복구하세요.",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("16진수"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("목록에서 숨기기"),
@@ -795,7 +795,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("초기화"),
     "initFailed": MessageLookupByLibrary.simpleMessage("시작 실패"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClashX를 시작하는 중 오류가 발생하여 계속할 수 없습니다. 세부 정보를 복사하여 문제를 보고하세요. 문제가 계속되면 데이터를 지우면 대개 앱이 다시 시작됩니다.",
+      "KAGO를 시작하는 중 오류가 발생하여 계속할 수 없습니다. 세부 정보를 복사하여 문제를 보고하세요. 문제가 계속되면 데이터를 지우면 대개 앱이 다시 시작됩니다.",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("요청자"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("출처"),
@@ -1120,9 +1120,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "portValue": m61,
     "ports": MessageLookupByLibrary.simpleMessage("포트"),
     "preChannelTip": MessageLookupByLibrary.simpleMessage(
-      "이 사전 출시 버전은 별도의 앱이라 FlClashX의 프로필을 볼 수 없습니다. 옮기려면 FlClashX의 백업 및 복원에서 백업을 만든 뒤 여기서 복원하거나, 링크로 구독을 다시 추가하세요.",
+      "이 사전 출시 버전은 별도의 앱이라 KAGO의 프로필을 볼 수 없습니다. 옮기려면 KAGO의 백업 및 복원에서 백업을 만든 뒤 여기서 복원하거나, 링크로 구독을 다시 추가하세요.",
     ),
-    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("FlClashX Pre"),
+    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("KAGO Pre"),
     "preSharedKey": MessageLookupByLibrary.simpleMessage("사전 공유 키"),
     "preferred": MessageLookupByLibrary.simpleMessage("우선"),
     "prerequisites": MessageLookupByLibrary.simpleMessage("사전 요건"),
@@ -1471,10 +1471,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "보냈습니다. 다른 기기에서 가져오기를 확인하세요.",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "FlClashX로 링크 보내기",
+      "KAGO로 링크 보내기",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "휴대폰에서 링크를 받으려면 FlClashX가 로컬 네트워크에 접근할 수 있도록 \'근처 기기\' 권한이 필요합니다. 앱 설정에서 켜 주세요.",
+      "휴대폰에서 링크를 받으려면 KAGO가 로컬 네트워크에 접근할 수 있도록 \'근처 기기\' 권한이 필요합니다. 앱 설정에서 켜 주세요.",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "휴대폰 카메라로 코드를 스캔한 뒤 열린 페이지에 링크를 붙여 넣으세요. 두 기기가 같은 네트워크에 연결되어 있어야 합니다. Android 17 이상에서 페이지가 열리지 않으면 휴대폰 브라우저에 \'근처 기기\' 권한을 허용하세요.",
@@ -1509,7 +1509,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "shareLogs": MessageLookupByLibrary.simpleMessage("로그 공유"),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "다른 기기의 FlClashX로 스캔하면 이 프로필을 가져올 수 있습니다.",
+      "다른 기기의 KAGO로 스캔하면 이 프로필을 가져올 수 있습니다.",
     ),
     "show": MessageLookupByLibrary.simpleMessage("표시"),
     "showLess": MessageLookupByLibrary.simpleMessage("접기"),
@@ -1559,11 +1559,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "stableImportRetry": MessageLookupByLibrary.simpleMessage("다시 시도"),
     "stableImportSkip": MessageLookupByLibrary.simpleMessage("가져오지 않고 계속"),
     "stableImportTip": MessageLookupByLibrary.simpleMessage(
-      "FlClashX Pre가 아직 FlClashX의 프로필과 설정을 가져오지 못했습니다. FlClashX가 실행 중이면 종료한 뒤 다시 시도하세요.",
+      "KAGO Pre가 아직 KAGO의 프로필과 설정을 가져오지 못했습니다. KAGO가 실행 중이면 종료한 뒤 다시 시도하세요.",
     ),
-    "stableImportTitle": MessageLookupByLibrary.simpleMessage(
-      "FlClashX 프로필 가져오기",
-    ),
+    "stableImportTitle": MessageLookupByLibrary.simpleMessage("KAGO 프로필 가져오기"),
     "stackMode": MessageLookupByLibrary.simpleMessage("스택 모드"),
     "stackTrace": MessageLookupByLibrary.simpleMessage("스택 트레이스"),
     "standard": MessageLookupByLibrary.simpleMessage("표준"),

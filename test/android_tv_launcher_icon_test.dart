@@ -82,8 +82,8 @@ void main() {
       'viewportHeight',
     );
 
-    // Conservative bounds of the current logo, including the curved caps.
-    const logoBounds = ui.Rect.fromLTRB(54, 33, 179, 206.5);
+    // The monochrome KAGO source fills its SVG viewBox.
+    const logoBounds = ui.Rect.fromLTWH(0, 0, 458.76, 499.39);
     final transformedBounds = ui.Rect.fromLTRB(
       (logoBounds.left * scaleX + translateX) / viewportWidth * 108,
       (logoBounds.top * scaleY + translateY) / viewportHeight * 108,

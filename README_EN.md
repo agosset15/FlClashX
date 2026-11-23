@@ -4,11 +4,11 @@
 
 </div>
 
-## FlClashX
+## KAGO
 
-[![Downloads](https://img.shields.io/github/downloads/pluralplay/FlClashX/total?style=flat-square&logo=github)](https://github.com/pluralplay/FlClashX/releases/)
-[![Last Version](https://img.shields.io/github/release/pluralplay/FlClashX/all.svg?style=flat-square)](https://github.com/pluralplay/FlClashX/releases/)
-[![License](https://img.shields.io/github/license/pluralplay/FlClashX?style=flat-square)](LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/agosset15/FlClashX/total?style=flat-square&logo=github)](https://github.com/agosset15/FlClashX/releases/)
+[![Last Version](https://img.shields.io/github/release/agosset15/FlClashX/all.svg?style=flat-square)](https://github.com/agosset15/FlClashX/releases/)
+[![License](https://img.shields.io/github/license/agosset15/FlClashX?style=flat-square)](LICENSE)
 
 [![Channel](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/FlClashX)
 
@@ -93,15 +93,15 @@ flclashx://install-config?url=<URL-encoded subscription link>
 **Automate on Android.** Tasker, MacroDroid and similar apps can start, stop or toggle the VPN by starting an activity with one of these actions:
 
 ```text
-com.follow.clashx.action.START
-com.follow.clashx.action.STOP
-com.follow.clashx.action.TOGGLE
+net.usekago.app.action.START
+net.usekago.app.action.STOP
+net.usekago.app.action.TOGGLE
 ```
 
 From a computer, the same works over adb:
 
 ```bash
-adb shell am start -a com.follow.clashx.action.TOGGLE
+adb shell am start -a net.usekago.app.action.TOGGLE
 ```
 
 **Linux tray icon.** The `.deb` package installs its own dependencies. With the AppImage or the `.rpm`, install the AyatanaAppIndicator library:
@@ -115,7 +115,7 @@ sudo dnf install libayatana-appindicator-gtk3     # Fedora
 
 ## Download
 
-Builds are on [GitHub Releases](https://github.com/pluralplay/FlClashX/releases).
+Builds are on [GitHub Releases](https://github.com/agosset15/FlClashX/releases).
 
 | Platform | Packages |
 | --- | --- |
@@ -124,14 +124,14 @@ Builds are on [GitHub Releases](https://github.com/pluralplay/FlClashX/releases)
 | macOS 12 and later | DMG for Apple Silicon and Intel |
 | Linux | `.deb`, `.rpm` and AppImage, for x64 and ARM64; `flclashx-bin` and `flclashx-git` on the AUR |
 
-<a href="https://github.com/pluralplay/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
+<a href="https://github.com/agosset15/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
 
 ## Build from source
 
 You need [Flutter](https://docs.flutter.dev/get-started/install) 3.47 (release builds use 3.47.6), [Go](https://go.dev/dl/) 1.27 and [Rust](https://rustup.rs/) installed through rustup. Each platform builds on its own host, except Android, which builds anywhere.
 
 ```bash
-git clone https://github.com/pluralplay/FlClashX.git
+git clone https://github.com/agosset15/FlClashX.git
 cd FlClashX
 flutter pub get
 dart setup.dart android   # or windows, macos, linux

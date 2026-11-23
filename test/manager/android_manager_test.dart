@@ -73,7 +73,7 @@ void main() {
   }
 
   for (final (refusal, notice) in [
-    (VpnRefusal.cancelled, 'You did not allow FlClashX to connect as a VPN'),
+    (VpnRefusal.cancelled, 'You did not allow KAGO to connect as a VPN'),
     (
       VpnRefusal.restricted,
       'VPN is restricted on this device by its administrator',

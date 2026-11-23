@@ -91,9 +91,9 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "com.follow" "\0"
 #ifdef FLCLASHX_PRE
-            VALUE "FileDescription", "FlClashX Pre" "\0"
+            VALUE "FileDescription", "KAGO Pre" "\0"
 #else
-            VALUE "FileDescription", "FlClashX" "\0"
+            VALUE "FileDescription", "KAGO" "\0"
 #endif
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "clashx" "\0"

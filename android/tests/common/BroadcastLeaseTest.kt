@@ -1,4 +1,4 @@
-package com.follow.clashx.common
+package net.usekago.app.common
 
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors

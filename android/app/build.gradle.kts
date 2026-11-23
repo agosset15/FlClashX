@@ -34,7 +34,7 @@ val dartDefines = (findProperty("dart-defines") as String?)
 val isPreChannel = (dartDefines["APP_ENV"] ?: "pre") == "pre"
 
 android {
-    namespace = "com.follow.clashx"
+    namespace = "net.usekago.app"
     compileSdk = libs.versions.compileSdk.get().toInt()
     ndkVersion = libs.versions.ndkVersion.get()
 
@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.follow.clashx"
+        applicationId = "net.usekago.app"
         minSdk = flutter.minSdkVersion
         targetSdk = libs.versions.targetSdk.get().toInt()
         // Releases up to 0.5.0-pre.8 gave split APKs Flutter's ABI offset of up to +4000, so the
@@ -88,7 +88,7 @@ android {
                 signingConfig = signingConfigs.getByName("release")
                 if (isPreChannel) {
                     applicationIdSuffix = ".pre"
-                    resValue("string", "app_name", "FlClashX Pre")
+                    resValue("string", "app_name", "KAGO Pre")
                 }
             } else {
                 signingConfig = signingConfigs.getByName("debug")

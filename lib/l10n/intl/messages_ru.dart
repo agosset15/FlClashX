@@ -32,7 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "Не удалось очистить данные: ${detail}";
 
   static String m5(code) =>
-      "Windows отказалась запускать FlClashCore.exe (ошибка ${code}). Политики контроля приложений, такие как Smart App Control или AppLocker, блокируют неподписанные программы; разрешите FlClashX в этой политике или отключите её и повторите попытку.";
+      "Windows отказалась запускать FlClashCore.exe (ошибка ${code}). Политики контроля приложений, такие как Smart App Control или AppLocker, блокируют неподписанные программы; разрешите KAGO в этой политике или отключите её и повторите попытку.";
 
   static String m6(name) =>
       "Приложение два раза подряд не смогло завершить запуск. Чтобы разорвать цикл, профиль ${name} снят с выбора, а автоматическая настройка пропущена. Вы можете выбрать его снова в любой момент.";
@@ -578,7 +578,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("Ядро"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Smart App Control в Windows заблокировал неподписанный FlClashCore.exe. Откройте Безопасность Windows → Управление приложениями и браузером → Параметры Smart App Control, выберите «Выкл.» и снова запустите FlClashX. Повторно включить Smart App Control без переустановки Windows нельзя.",
+      "Smart App Control в Windows заблокировал неподписанный FlClashCore.exe. Откройте Безопасность Windows → Управление приложениями и браузером → Параметры Smart App Control, выберите «Выкл.» и снова запустите KAGO. Повторно включить Smart App Control без переустановки Windows нельзя.",
     ),
     "coreRestartByCommandFailed": MessageLookupByLibrary.simpleMessage(
       "Команде не удалось перезапустить ядро",
@@ -708,7 +708,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Отказ от ответственности",
     ),
     "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "FlClashX — бесплатный клиент с открытым исходным кодом на ядре Mihomo. Ниже коротко о том, что он делает, чего не делает и какие данные собирает. Нажимая «Я согласен», вы принимаете эти условия.",
+      "KAGO — бесплатный клиент с открытым исходным кодом на ядре Mihomo. Ниже коротко о том, что он делает, чего не делает и какие данные собирает. Нажимая «Я согласен», вы принимаете эти условия.",
     ),
     "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
       "Исходный код открыт и распространяется по лицензии GPL-3.0. Ядро Mihomo и другие сторонние компоненты имеют собственные лицензии. За изменённые или распространяемые третьими лицами сборки авторы не отвечают.",
@@ -915,7 +915,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "healthCheck": MessageLookupByLibrary.simpleMessage("Проверка состояния"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Служба Helper недоступна, поэтому TUN-режим включить нельзя. Переустановите FlClashX.",
+      "Служба Helper недоступна, поэтому TUN-режим включить нельзя. Переустановите KAGO.",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("Hex"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("Скрыть из списка"),
@@ -986,7 +986,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("Инициализация"),
     "initFailed": MessageLookupByLibrary.simpleMessage("Не удалось запустить"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "При запуске FlClashX произошла ошибка, и работа не может быть продолжена. Скопируйте подробности, чтобы сообщить о проблеме. Если ошибка повторяется, очистка данных обычно позволяет снова запустить приложение.",
+      "При запуске KAGO произошла ошибка, и работа не может быть продолжена. Скопируйте подробности, чтобы сообщить о проблеме. Если ошибка повторяется, очистка данных обычно позволяет снова запустить приложение.",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("Инициатор"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("Откуда"),
@@ -1402,9 +1402,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "portValue": m61,
     "ports": MessageLookupByLibrary.simpleMessage("Порты"),
     "preChannelTip": MessageLookupByLibrary.simpleMessage(
-      "Это предварительная версия, она стоит отдельным приложением и не видит профили FlClashX. Чтобы перенести их, сделайте резервную копию в FlClashX в разделе «Резервное копирование и восстановление» и восстановите её здесь, или добавьте подписки заново по ссылке.",
+      "Это предварительная версия, она стоит отдельным приложением и не видит профили KAGO. Чтобы перенести их, сделайте резервную копию в KAGO в разделе «Резервное копирование и восстановление» и восстановите её здесь, или добавьте подписки заново по ссылке.",
     ),
-    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("FlClashX Pre"),
+    "preChannelTipTitle": MessageLookupByLibrary.simpleMessage("KAGO Pre"),
     "preSharedKey": MessageLookupByLibrary.simpleMessage("Общий ключ"),
     "preferred": MessageLookupByLibrary.simpleMessage("Предпочтительный"),
     "prerequisites": MessageLookupByLibrary.simpleMessage(
@@ -1831,10 +1831,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Отправлено. Подтвердите импорт на другом устройстве.",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "Отправить ссылку в FlClashX",
+      "Отправить ссылку в KAGO",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "Чтобы получить ссылку с телефона, FlClashX нужно разрешение «Устройства поблизости» для доступа к локальной сети. Включите его в настройках приложения.",
+      "Чтобы получить ссылку с телефона, KAGO нужно разрешение «Устройства поблизости» для доступа к локальной сети. Включите его в настройках приложения.",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "Отсканируйте код камерой телефона и вставьте ссылку на открывшейся странице. Оба устройства должны быть в одной сети. Если страница не открывается на Android 17 и новее, дайте браузеру на телефоне разрешение «Устройства поблизости».",
@@ -1877,7 +1877,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Поделиться логами"),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "Отсканируйте в FlClashX на другом устройстве, чтобы импортировать этот профиль.",
+      "Отсканируйте в KAGO на другом устройстве, чтобы импортировать этот профиль.",
     ),
     "show": MessageLookupByLibrary.simpleMessage("Показать"),
     "showLess": MessageLookupByLibrary.simpleMessage("Свернуть"),
@@ -1939,10 +1939,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Продолжить без них",
     ),
     "stableImportTip": MessageLookupByLibrary.simpleMessage(
-      "FlClashX Pre пока не смог забрать профили и настройки FlClashX. Если FlClashX запущен, закройте его и повторите.",
+      "KAGO Pre пока не смог забрать профили и настройки KAGO. Если KAGO запущен, закройте его и повторите.",
     ),
     "stableImportTitle": MessageLookupByLibrary.simpleMessage(
-      "Перенос профилей FlClashX",
+      "Перенос профилей KAGO",
     ),
     "stackMode": MessageLookupByLibrary.simpleMessage("Стек TUN"),
     "stackTrace": MessageLookupByLibrary.simpleMessage("Трассировка стека"),

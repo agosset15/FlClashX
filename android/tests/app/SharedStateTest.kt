@@ -1,6 +1,6 @@
-package com.follow.clashx.models
+package net.usekago.app.models
 
-import com.follow.clashx.common.AccessControlMode
+import net.usekago.app.common.AccessControlMode
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -91,7 +91,7 @@ class SharedStateTest {
     fun `the constructed default keeps every fallback Flutter relies on`() {
         val defaults = SharedState()
 
-        assertEquals("FlClashX", defaults.currentProfileName)
+        assertEquals("KAGO", defaults.currentProfileName)
         assertEquals("Stop", defaults.stopText)
         assertEquals(true, defaults.showStopAction)
         assertNull(defaults.vpnOptions)
@@ -107,7 +107,7 @@ class SharedStateTest {
 
         assertNotNull(state)
         assertEquals("Starting VPN...", state.startTip)
-        assertEquals("FlClashX", state.currentProfileName)
+        assertEquals("KAGO", state.currentProfileName)
         assertNull(state.vpnOptions)
         assertNull(state.setupParams)
     }

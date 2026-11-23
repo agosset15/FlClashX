@@ -4,11 +4,11 @@
 
 </div>
 
-## FlClashX
+## KAGO
 
-[![Downloads](https://img.shields.io/github/downloads/pluralplay/FlClashX/total?style=flat-square&logo=github)](https://github.com/pluralplay/FlClashX/releases/)
-[![Last Version](https://img.shields.io/github/release/pluralplay/FlClashX/all.svg?style=flat-square)](https://github.com/pluralplay/FlClashX/releases/)
-[![License](https://img.shields.io/github/license/pluralplay/FlClashX?style=flat-square)](LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/agosset15/FlClashX/total?style=flat-square&logo=github)](https://github.com/agosset15/FlClashX/releases/)
+[![Last Version](https://img.shields.io/github/release/agosset15/FlClashX/all.svg?style=flat-square)](https://github.com/agosset15/FlClashX/releases/)
+[![License](https://img.shields.io/github/license/agosset15/FlClashX?style=flat-square)](LICENSE)
 
 [![Channel](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/FlClashX)
 
@@ -93,15 +93,15 @@ flclashx://install-config?url=<ссылка на подписку в URL-код�
 **Автоматизация на Android.** Tasker, MacroDroid и похожие приложения могут запускать, останавливать и переключать VPN, открывая activity с одним из действий:
 
 ```text
-com.follow.clashx.action.START
-com.follow.clashx.action.STOP
-com.follow.clashx.action.TOGGLE
+net.usekago.app.action.START
+net.usekago.app.action.STOP
+net.usekago.app.action.TOGGLE
 ```
 
 С компьютера то же самое через adb:
 
 ```bash
-adb shell am start -a com.follow.clashx.action.TOGGLE
+adb shell am start -a net.usekago.app.action.TOGGLE
 ```
 
 **Иконка в трее на Linux.** Пакет `.deb` ставит зависимости сам. Для AppImage и `.rpm` установите AyatanaAppIndicator:
@@ -115,7 +115,7 @@ sudo dnf install libayatana-appindicator-gtk3     # Fedora
 
 ## Скачать
 
-Сборки лежат в [GitHub Releases](https://github.com/pluralplay/FlClashX/releases).
+Сборки лежат в [GitHub Releases](https://github.com/agosset15/FlClashX/releases).
 
 | Платформа | Пакеты |
 | --- | --- |
@@ -124,14 +124,14 @@ sudo dnf install libayatana-appindicator-gtk3     # Fedora
 | macOS 12 и новее | DMG для Apple Silicon и Intel |
 | Linux | `.deb`, `.rpm` и AppImage, для x64 и ARM64; в AUR пакеты `flclashx-bin` и `flclashx-git` |
 
-<a href="https://github.com/pluralplay/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
+<a href="https://github.com/agosset15/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
 
 ## Сборка из исходников
 
 Нужны [Flutter](https://docs.flutter.dev/get-started/install) 3.47 (релизы собираются на 3.47.6), [Go](https://go.dev/dl/) 1.27 и [Rust](https://rustup.rs/), установленный через rustup. Каждая платформа собирается на своей системе, кроме Android, который собирается где угодно.
 
 ```bash
-git clone https://github.com/pluralplay/FlClashX.git
+git clone https://github.com/agosset15/FlClashX.git
 cd FlClashX
 flutter pub get
 dart setup.dart android   # или windows, macos, linux

@@ -4,11 +4,11 @@
 
 </div>
 
-## FlClashX
+## KAGO
 
-[![Downloads](https://img.shields.io/github/downloads/pluralplay/FlClashX/total?style=flat-square&logo=github)](https://github.com/pluralplay/FlClashX/releases/)
-[![Last Version](https://img.shields.io/github/release/pluralplay/FlClashX/all.svg?style=flat-square)](https://github.com/pluralplay/FlClashX/releases/)
-[![License](https://img.shields.io/github/license/pluralplay/FlClashX?style=flat-square)](LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/agosset15/FlClashX/total?style=flat-square&logo=github)](https://github.com/agosset15/FlClashX/releases/)
+[![Last Version](https://img.shields.io/github/release/agosset15/FlClashX/all.svg?style=flat-square)](https://github.com/agosset15/FlClashX/releases/)
+[![License](https://img.shields.io/github/license/agosset15/FlClashX?style=flat-square)](LICENSE)
 
 [![Channel](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/FlClashX)
 
@@ -93,15 +93,15 @@ flclashx://install-config?url=<URL 编码后的订阅链接>
 **在 Android 上自动化。** Tasker、MacroDroid 及类似应用可以通过以下 action 启动 activity 来启动、停止或切换 VPN：
 
 ```text
-com.follow.clashx.action.START
-com.follow.clashx.action.STOP
-com.follow.clashx.action.TOGGLE
+net.usekago.app.action.START
+net.usekago.app.action.STOP
+net.usekago.app.action.TOGGLE
 ```
 
 在电脑上也可以通过 adb 完成同样的操作：
 
 ```bash
-adb shell am start -a com.follow.clashx.action.TOGGLE
+adb shell am start -a net.usekago.app.action.TOGGLE
 ```
 
 **Linux 托盘图标。** `.deb` 包会自动安装依赖。使用 AppImage 或 `.rpm` 时，请先安装 AyatanaAppIndicator：
@@ -115,7 +115,7 @@ sudo dnf install libayatana-appindicator-gtk3     # Fedora
 
 ## 下载
 
-安装包发布在 [GitHub Releases](https://github.com/pluralplay/FlClashX/releases)。
+安装包发布在 [GitHub Releases](https://github.com/agosset15/FlClashX/releases)。
 
 | 平台 | 安装包 |
 | --- | --- |
@@ -124,14 +124,14 @@ sudo dnf install libayatana-appindicator-gtk3     # Fedora
 | macOS 12 及更高版本 | 适用于 Apple Silicon 和 Intel 的 DMG |
 | Linux | `.deb`、`.rpm` 和 AppImage，支持 x64 和 ARM64；AUR 上有 `flclashx-bin` 和 `flclashx-git` |
 
-<a href="https://github.com/pluralplay/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
+<a href="https://github.com/agosset15/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
 
 ## 从源码构建
 
 需要 [Flutter](https://docs.flutter.dev/get-started/install) 3.47（发布版本使用 3.47.6）、[Go](https://go.dev/dl/) 1.27，以及通过 rustup 安装的 [Rust](https://rustup.rs/)。除 Android 外，每个平台都要在各自的系统上构建；Android 可以在任何系统上构建。
 
 ```bash
-git clone https://github.com/pluralplay/FlClashX.git
+git clone https://github.com/agosset15/FlClashX.git
 cd FlClashX
 flutter pub get
 dart setup.dart android   # 或 windows、macos、linux

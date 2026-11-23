@@ -7,11 +7,11 @@ project(runner LANGUAGES CXX)
 set(BINARY_NAME "FlClashX")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.follow.clashx")
+set(APPLICATION_ID "net.usekago.app")
 # setup.dart sets this for a pre-release, which then has data and an instance
 # of its own.
 if("$ENV{FLCLASHX_CHANNEL}" STREQUAL "pre")
-  set(APPLICATION_ID "com.follow.clashx.pre")
+  set(APPLICATION_ID "net.usekago.app.pre")
 endif()
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent

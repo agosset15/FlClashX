@@ -1,4 +1,4 @@
 
--keep class com.follow.clashx.models.** { *; }
+-keep class net.usekago.app.models.** { *; }
 
--keep class com.follow.clashx.service.models.** { *; }
+-keep class net.usekago.app.service.models.** { *; }

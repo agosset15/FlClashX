@@ -1,5 +1,5 @@
 name: fl_clash
-description: FlClashX, a fork of FlClash - a multi-platform proxy client based on ClashMeta for Remnawave users.
+description: KAGO, a fork of FlClashX - a multi-platform proxy client based on ClashMeta for Remnawave users.
 publish_to: 'none'
 version: 0.5.8+2026111801
 environment:

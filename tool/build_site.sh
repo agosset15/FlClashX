@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo="${SITE_REPOSITORY:-chen08209/FlClash}"
+repo="${SITE_REPOSITORY:-agosset15/FlClashX}"
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 out="${1:-$root/build/site}"
 
@@ -13,9 +13,9 @@ fi
 rm -rf "$out"
 mkdir -p "$out"
 cp -R "$root/site/." "$out/"
-cp "$root/snapshots/preview.png" "$root/snapshots/preview-dark.png" "$out/"
+cp "$root/og-cover.png" "$out/"
 cp "$root/assets/images/icon.png" "$out/icon.png"
-cp "$root/assets_source/images/icon/glyph.svg" "$out/favicon.svg"
+cp "$root/icon.svg" "$out/favicon.svg"
 
 if stars="$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null)" &&
   release="$(gh api "repos/$repo/releases/latest" --jq ".tag_name, ({
@@ -42,6 +42,6 @@ else
   cp "$root/CHANGELOG.md" "$out/CHANGELOG.md"
 fi
 
-node "$root/tool/render_site.mjs" "$out" "${SITE_URL:-https://chen08209.github.io/FlClash}"
+node "$root/tool/render_site.mjs" "$out" "${SITE_URL:-https://agosset15.github.io/FlClashX}"
 
 echo "site assembled in $out"

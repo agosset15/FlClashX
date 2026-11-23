@@ -33,7 +33,8 @@ class DAVClient {
     }
   }
 
-  String get root => '/$appName';
+  // Existing remote backups use this directory regardless of the app label.
+  String get root => '/FlClashX';
 
   String get backupFile => '$root/$fileName';
 

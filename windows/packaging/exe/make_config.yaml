@@ -1,9 +1,9 @@
 script_template: inno_setup.iss
 app_id: D915C0D1-2F5B-4676-97D5-6D55F3EF45A4
-app_name: FlClashX
-publisher: pluralplay
-publisher_url: https://github.com/pluralplay/FlClashX
-display_name: FlClashX
+app_name: KAGO
+publisher: KAGO
+publisher_url: https://github.com/agosset15/FlClashX
+display_name: KAGO
 executable_name: FlClashX.exe
 output_base_file_name: FlClashX.exe
 # Resolved against the project root: flutter_distributor turns this into an
