@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.10 (2026-11-24)
+
+**Features**
+
+- Optional apple and s3 (8631eab)
+
 ## v0.5.9 (2026-11-23)
 
 **Features**
