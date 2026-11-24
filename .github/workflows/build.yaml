@@ -130,20 +130,59 @@ jobs:
           dart analyze
           dart test
 
+  prepare-builds:
+    name: Prepare build matrices
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.repository == 'agosset15/FlClashX' ||
+      github.repository == 'pluralplay/FlClashX'
+    runs-on: ubuntu-24.04
+    permissions: {}
+    outputs:
+      desktop: ${{ steps.targets.outputs.desktop }}
+      release: ${{ steps.targets.outputs.release }}
+    steps:
+      - name: Select build targets
+        id: targets
+        shell: bash
+        env:
+          HAS_APPLE_SIGNING: >-
+            ${{ secrets.APPLE_CERTIFICATE != '' && secrets.APPLE_CERTIFICATE_PASSWORD != '' &&
+                secrets.APPLE_DEVELOPER_ID != '' && secrets.APPLE_API_KEY_BASE64 != '' &&
+                secrets.APPLE_API_KEY_ID != '' && secrets.APPLE_API_ISSUER != '' }}
+          DESKTOP_TARGETS: >-
+            [
+              {"platform": "linux", "os": "ubuntu-24.04"},
+              {"platform": "windows", "os": "windows-2022"},
+              {"platform": "macos", "os": "macos-26"}
+            ]
+          RELEASE_TARGETS: >-
+            [
+              {"platform": "android", "os": "ubuntu-24.04"},
+              {"platform": "windows", "os": "windows-2022", "arch": "amd64"},
+              {"platform": "linux", "os": "ubuntu-22.04", "arch": "amd64"},
+              {"platform": "macos", "os": "macos-26-intel", "arch": "amd64"},
+              {"platform": "macos", "os": "macos-26", "arch": "arm64"},
+              {"platform": "windows", "os": "windows-11-arm", "arch": "arm64", "flutter-channel": "master"},
+              {"platform": "linux", "os": "ubuntu-24.04-arm", "arch": "arm64", "flutter-channel": "master"}
+            ]
+        run: |
+          if [[ "$HAS_APPLE_SIGNING" != true ]]; then
+            echo "::notice::Apple signing or notarization secrets are missing. Skipping macOS builds."
+          fi
+          filter='{include: map(select(.platform != "macos" or $apple == "true"))}'
+          desktop=$(jq -c --arg apple "$HAS_APPLE_SIGNING" "$filter" <<< "$DESKTOP_TARGETS")
+          release=$(jq -c --arg apple "$HAS_APPLE_SIGNING" "$filter" <<< "$RELEASE_TARGETS")
+          printf 'desktop=%s\nrelease=%s\n' "$desktop" "$release" >> "$GITHUB_OUTPUT"
+
   desktop:
     name: Desktop ${{ matrix.platform }}
+    needs: prepare-builds
     if: (github.event_name == 'workflow_dispatch' || !github.event.repository.private) && !(github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - platform: linux
-            os: ubuntu-24.04
-          - platform: windows
-            os: windows-2022
-          - platform: macos
-            os: macos-26
+      matrix: ${{ fromJSON(needs.prepare-builds.outputs.desktop) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -348,36 +387,14 @@ jobs:
         run: cargo test --manifest-path services/helper/Cargo.toml --features windows-service
 
   build:
+    needs: prepare-builds
     if: >-
       (github.repository == 'agosset15/FlClashX' || github.repository == 'pluralplay/FlClashX') &&
       github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - platform: android
-            os: ubuntu-24.04
-          - platform: windows
-            os: windows-2022
-            arch: amd64
-          - platform: linux
-            os: ubuntu-22.04
-            arch: amd64
-          - platform: macos
-            os: macos-26-intel
-            arch: amd64
-          - platform: macos
-            os: macos-26
-            arch: arm64
-          - platform: windows
-            os: windows-11-arm
-            arch: arm64
-            flutter-channel: master
-          - platform: linux
-            os: ubuntu-24.04-arm
-            arch: arm64
-            flutter-channel: master
+      matrix: ${{ fromJSON(needs.prepare-builds.outputs.release) }}
 
     steps:
       - name: Setup rust
@@ -594,13 +611,20 @@ jobs:
           dart run tool/changelog.dart render release "${target[@]}" --out release.md
 
       - name: Patch release.md
+        shell: bash
+        env:
+          TAG: ${{ github.ref_name }}
         run: |
-          version=$(echo "${{ github.ref_name }}" | sed 's/^v//')
-          if [ "${{ env.IS_STABLE }}" == "true" ]; then
-            sed "s|pluralplay/FlClashX|$GITHUB_REPOSITORY|g; s|VERSION|$version|g" ./.github/release_template.md >> release.md
+          if [[ "$IS_STABLE" == true ]]; then
+            template=.github/release_template.md
           else
-            sed "s|pluralplay/FlClashX|$GITHUB_REPOSITORY|g; s|VERSION|$version|g" ./.github/pre_release_template.md >> release.md
+            template=.github/pre_release_template.md
           fi
+          edits=(-e "s|pluralplay/FlClashX|$GITHUB_REPOSITORY|g; s|VERSION|${TAG#v}|g")
+          if ! compgen -G './dist/FlClashX-macos-*.dmg' > /dev/null; then
+            edits+=(-e '/<!-- macOS downloads start -->/,/<!-- macOS downloads end -->/d')
+          fi
+          sed "${edits[@]}" "$template" >> release.md
 
       - name: Generate sha256
         run: |
@@ -636,6 +660,46 @@ jobs:
           name: release-notes
           path: release.md
           retention-days: 1
+
+  upload-s3:
+    name: Upload to S3
+    needs: upload
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Upload release artifacts to S3
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL || vars.S3_ENDPOINT_URL }}
+          S3_REGION: ${{ secrets.S3_REGION || vars.S3_REGION }}
+          S3_PREFIX: ${{ secrets.S3_PREFIX || vars.S3_PREFIX }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          settings=(S3_ENDPOINT_URL S3_REGION S3_PREFIX AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY)
+          missing=()
+          for setting in "${settings[@]}"; do
+            if [[ -z "${!setting}" ]]; then
+              missing+=("$setting")
+            fi
+          done
+          if (( ${#missing[@]} == ${#settings[@]} )); then
+            echo "::notice::S3 is not configured. Skipping the S3 upload."
+            exit 0
+          fi
+          if (( ${#missing[@]} )); then
+            echo "::error::Missing S3 settings: ${missing[*]}"
+            exit 1
+          fi
+          if [[ ! "$S3_PREFIX" =~ ^s3://[^/]+(/.*)?$ ]]; then
+            echo "::error::S3_PREFIX must be an S3 URI such as s3://bucket/releases."
+            exit 1
+          fi
+          gh release download "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --dir dist
+          aws s3 cp ./dist/ "${S3_PREFIX%/}/$GITHUB_REF_NAME/" \
+            --recursive --no-progress --endpoint-url "$S3_ENDPOINT_URL" --region "$S3_REGION"
 
   aur-publish:
     needs: [ upload ]

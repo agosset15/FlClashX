@@ -33,6 +33,7 @@
                 <a href="https://github.com/pluralplay/FlClashX/releases/download/vVERSION/FlClashX-windows-arm64.zip"><img src="https://img.shields.io/badge/Portable-arm-67b7d1.svg?logo=windows"></a>
             </td>
         </tr>
+        <!-- macOS downloads start -->
         <tr>
             <td>macOS</td>
             <td>
@@ -40,6 +41,7 @@
                 <a href="https://github.com/pluralplay/FlClashX/releases/download/vVERSION/FlClashX-macos-amd64.dmg"><img src="https://img.shields.io/badge/DMG-Intel%20X64-%2300A9E0.svg?logo=apple"></a><br>
             </td>
         </tr>
+        <!-- macOS downloads end -->
         <tr>
             <td>Linux</td>
             <td>
